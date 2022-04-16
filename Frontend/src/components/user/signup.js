@@ -98,7 +98,7 @@ export default function Signup() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: 'url(https://innovationatwork.ieee.org/wp-content/uploads/2018/07/iStock-829197466-1024x683.jpg)',
+            backgroundImage: 'url(https://imageio.forbes.com/specials-images/imageserve/6127a9548f7630d09ed2131b/Driverless-car-with-futuristic-technology-/960x0.jpg?fit=bounds&format=jpg&width=960)',
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) =>
               t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
