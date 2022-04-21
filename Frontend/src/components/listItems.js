@@ -16,23 +16,23 @@ export const mainListItems = (persona) => {
   console.log(persona);
   return(
     <div>
-      <ListItem button>
+      <ListItem button> 
         <ListItemIcon>
           <DashboardIcon />
         </ListItemIcon>
-        <ListItemText style={{color: 'Black'}} primary="Dashboard" />
+        <ListItemText style={{color: 'White'}} primary="Dashboard" />
       </ListItem>
       <ListItem button component={Link} to="/profile">
         <ListItemIcon>
           <ShoppingCartIcon />
         </ListItemIcon>
-              <ListItemText style={{color: 'Black'}} primary="Profile" />
+              <ListItemText style={{color: 'White'}} primary="Profile" />
           </ListItem>
       <ListItem button component={Link} to="/pricing">
         <ListItemIcon>
           <PeopleIcon />
         </ListItemIcon>
-        <ListItemText style={{color: 'Black'}} primary="Payment Plan" />
+        <ListItemText style={{color: 'White'}} primary="Payment Plan" />
       </ListItem>
       {(persona === 'owner' || persona === 'admin') && (
       <Link to={{
@@ -44,7 +44,7 @@ export const mainListItems = (persona) => {
           <ListItemIcon>
             <BarChartIcon />
           </ListItemIcon>
-          <ListItemText style={{color: 'Black'}} primary="Your Asset Rides" />
+          <ListItemText style={{color: 'white'}} primary="Your Asset Rides" />
         </ListItem>
         </Link>
       )}
@@ -57,7 +57,7 @@ export const mainListItems = (persona) => {
         <ListItemIcon>
           <BarChartIcon />
         </ListItemIcon>
-        <ListItemText style={{color: 'Black'}} primary="Your Rides" />
+        <ListItemText style={{color: 'white'}} primary="Your Rides" />
       </ListItem>
       </Link>
       
@@ -67,7 +67,7 @@ export const mainListItems = (persona) => {
         <ListItemIcon>
           <LayersIcon />
         </ListItemIcon>
-        <ListItemText style={{color: 'Black'}} primary="Add a Car" />
+        <ListItemText style={{color: 'white'}} primary="Add a Car" />
       </ListItem>
       )}
       {(persona === 'owner' || persona === 'admin') && (
@@ -75,7 +75,7 @@ export const mainListItems = (persona) => {
         <ListItemIcon>
           <LayersIcon />
         </ListItemIcon>
-        <ListItemText style={{color: 'Black'}} primary="View Assets" />
+        <ListItemText style={{color: 'white'}} primary="View Assets" />
       </ListItem>
       )}
       {persona === 'admin' && (
@@ -83,7 +83,7 @@ export const mainListItems = (persona) => {
             <ListItemIcon>
               <LayersIcon />
             </ListItemIcon>
-          <ListItemText style={{color: 'Black'}} primary="Business Trends" />
+          <ListItemText style={{color: 'white'}} primary="Business Trends" />
         </ListItem>
       )}
 
@@ -97,19 +97,19 @@ export const secondaryListItems = (
       <ListItemIcon>
         <AssignmentIcon />
       </ListItemIcon>
-      <ListItemText style={{color: 'Black'}} primary="Current month" />
+      <ListItemText style={{color: 'white'}} primary="Current month" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
         <AssignmentIcon />
       </ListItemIcon>
-      <ListItemText style={{color: 'Black'}} primary="Last quarter" />
+      <ListItemText style={{color: 'white'}} primary="Last quarter" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
         <AssignmentIcon />
       </ListItemIcon>
-      <ListItemText style={{color: 'Black'}} primary="Year-end sale" />
+      <ListItemText style={{color: 'white'}} primary="Year-end sale" />
     </ListItem>
   </div>
 );

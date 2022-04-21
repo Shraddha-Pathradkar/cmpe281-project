@@ -30,7 +30,7 @@ import BookRideButton from './ride/BookRideButton';
 
 function Copyright(props) {
   return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
+    <Typography variant="body2" color="text.secondary" align="center" {...props} style={{ marginLeft:"480px",marginTop:"200px",  position: "fixed", alignItems:"center"}}> 
       {'Copyright © '}
       <Link color="inherit" href="https://mui.com/">
         Your Website
@@ -89,7 +89,11 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
-const mdTheme = createTheme();
+const mdTheme = createTheme({
+  palette:{
+    mode:"dark"
+  }
+});
 
 const DashboardContent = () => {
 
@@ -105,12 +109,12 @@ const DashboardContent = () => {
 
   console.log(authContext);
   return (
-    <>
+    <div >
     {(
-    <ThemeProvider theme={mdTheme}>
+    <ThemeProvider theme={mdTheme} >
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
-        <AppBar position="absolute" open={open}>
+        <AppBar position="absolute" open={open} style={{backgroundColor:"#957DAD"}}>
           <Toolbar
             sx={{
               pr: '24px', // keep right padding when drawer closed
@@ -131,9 +135,12 @@ const DashboardContent = () => {
             <Typography
               component="h1"
               variant="h6"
-              color="#1c3f60"
+              color="black"
               noWrap
               sx={{ flexGrow: 1 }}
+              fontFamily="Roboto"
+              fontWeight= "bold"
+
             >
               Dashboard
             </Typography>
@@ -217,7 +224,7 @@ const DashboardContent = () => {
       </Box>
     </ThemeProvider>
     )}
-    </>
+    </div>
   );
 }
 

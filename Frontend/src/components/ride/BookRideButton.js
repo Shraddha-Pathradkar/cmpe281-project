@@ -7,8 +7,8 @@ import {useHistory} from 'react-router-dom';
 
 const images = [
   {
-    url: 'https://i.pcmag.com/imagery/roundups/05Nrmdf1qCW3N8Xl2idjrkW-2.fit_lim.size_1028x578.v1569492797.jpg',
-    title: 'Book Ride',
+    url: 'https://www.avcconsortium.org/wp-content/uploads/2020/11/Clip-Group_.png',
+    title: 'Book Your Ride',
     width: '100%',
   }
 ];
