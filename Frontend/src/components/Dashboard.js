@@ -90,9 +90,9 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 );
 
 const mdTheme = createTheme({
-  palette:{
-    mode:"dark"
-  }
+  // palette:{
+  //   mode:"dark"
+  // }
 });
 
 const DashboardContent = () => {
