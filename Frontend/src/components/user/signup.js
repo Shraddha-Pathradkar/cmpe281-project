@@ -12,6 +12,7 @@ import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import PersonIcon from '@mui/icons-material/Person';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Redirect, useHistory } from "react-router";
@@ -72,7 +73,7 @@ export default function Signup() {
       setTimeout(()=>{
         history.push('/login');
       }, 500);
-      
+
     }
     else{
       setAuthState(false);
@@ -88,7 +89,7 @@ export default function Signup() {
   );
   }
   return (
-    
+
     <ThemeProvider theme={theme}>
       <Grid container component="main" sx={{ height: '100vh' }}>
         <CssBaseline />
@@ -98,7 +99,7 @@ export default function Signup() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: 'url(https://imageio.forbes.com/specials-images/imageserve/6127a9548f7630d09ed2131b/Driverless-car-with-futuristic-technology-/960x0.jpg?fit=bounds&format=jpg&width=960)',
+            backgroundImage: 'url(https://floridapolitics.com/wp-content/uploads/2021/04/autonomous-vehicles.png)',
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) =>
               t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
@@ -116,8 +117,8 @@ export default function Signup() {
               alignItems: 'center',
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-              <LockOutlinedIcon />
+            <Avatar sx={{ m: 1, bgcolor: '#1C3F60' }}>
+              <PersonIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
               Sign Up
@@ -126,25 +127,25 @@ export default function Signup() {
               <br></br>
             <Grid item xs={12}>
                   <div class="form-check form-check-inline">
-                    <input 
-                      checked={persona === 'Customer'} 
-                      class="form-check-input" 
-                      type="radio" 
-                      name="customer" 
+                    <input
+                      checked={persona === 'Customer'}
+                      class="form-check-input"
+                      type="radio"
+                      name="customer"
                       id="customer"
                       onClick={()=>{setPersona('Customer')}}
                     />
-                    <label 
+                    <label
                       class="form-check-label" for="customer">
                       Customer
                     </label>
                   </div>
                   <div class="form-check form-check-inline">
-                    <input 
-                      checked={persona === 'Owner'}  
-                      class="form-check-input" 
-                      type="radio" 
-                      name="carOwner" 
+                    <input
+                      checked={persona === 'Owner'}
+                      class="form-check-input"
+                      type="radio"
+                      name="carOwner"
                       id="carOwner"
                       onClick={()=>{setPersona('Owner')}}
                     />
@@ -153,13 +154,13 @@ export default function Signup() {
                     </label>
                   </div>
                   <div class="form-check form-check-inline">
-                    <input 
-                      checked={persona === 'Admin'} 
-                      class="form-check-input" 
-                      type="radio" 
-                      name="admin" 
+                    <input
+                      checked={persona === 'Admin'}
+                      class="form-check-input"
+                      type="radio"
+                      name="admin"
                       id="admin"
-                      onClick={()=>{setPersona('Admin')}}  
+                      onClick={()=>{setPersona('Admin')}}
                     />
                     <label class="form-check-label" for="admin">
                       Admin
@@ -213,11 +214,10 @@ export default function Signup() {
             </Grid>
             <Button
               type="submit"
-              fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Sign Up
+              Create Account
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>

@@ -10,6 +10,8 @@ import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import LockOpenSharpIcon from '@mui/icons-material/LockOpenSharp';
+import PersonIcon from '@mui/icons-material/Person';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {signin} from '../../services/authenticationService';
@@ -81,7 +83,7 @@ export default function SignInSide() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: 'url(https://innovationatwork.ieee.org/wp-content/uploads/2018/07/iStock-829197466-1024x683.jpg)',
+            backgroundImage: 'url(https://www.automotiveplastics.com/wp-content/uploads/Redundant-Safety-iStock-872673304.jpg)',
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) =>
               t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
@@ -99,8 +101,8 @@ export default function SignInSide() {
               alignItems: 'center',
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-              <LockOutlinedIcon />
+            <Avatar sx={{ m: 1, bgcolor: '#1C3F60' }}>
+              <PersonIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
               Sign in
@@ -130,7 +132,7 @@ export default function SignInSide() {
                   {/* <Radio value={'customer'} checked={row.carId === props.ride.carId} onChange={selectCar}>Customer</Radio>
                   <Radio value={JSON.stringify(row)} checked={row.carId === props.ride.carId} onChange={selectCar}>Owner</Radio>
                   <Radio value={JSON.stringify(row)} checked={row.carId === props.ride.carId} onChange={selectCar}>Admin</Radio> */}
-                  
+
               </Grid>
               <br></br>
 
