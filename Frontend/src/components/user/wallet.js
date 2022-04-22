@@ -23,7 +23,7 @@ function Wallet(props) {
     <Grid item xs={12} md={15}                   
     >
       <CardActionArea component="a" href="#" >
-        <Card sx={{ display: 'flex' }} style={{backgroundColor:"#2C3539"}}>
+        <Card sx={{ display: 'flex' }} style={{backgroundColor:""}}>
           <CardContent sx={{ flex: 1 }}>
           <Typography variant="subtitle1" paragraph>
               {/* {post.description} */}

@@ -15,6 +15,7 @@ import PrivateRoute from './authenticaion/PrivateRoute';
 import AdminAnalysis from './integration/AdminAnalysis';
 import { BACKEND_URL } from '../services/constants';
 import { BACKEND_PORT } from '../services/constants';
+import CustomerSupport from './CustomerSupport';
 
 const Main = () => {
     const [user, setUser] = useState();
@@ -97,6 +98,9 @@ const Main = () => {
                         </PrivateRoute>
                         <PrivateRoute path="/AdminAnalysis">
                             <AdminAnalysis/>
+                        </PrivateRoute>
+                        <PrivateRoute path="/CustomerSupport">
+                            <CustomerSupport/>
                         </PrivateRoute>
                     </Router>
                 </ProvideAuth>

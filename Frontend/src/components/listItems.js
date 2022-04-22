@@ -11,6 +11,7 @@ import LayersIcon from '@mui/icons-material/Layers';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import { Redirect } from 'react-router-dom';
 import ListItemButton from '@mui/material/ListItemButton';
+import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 import { Link } from "react-router-dom";
 export const mainListItems = (persona) => {
   console.log(persona);
@@ -58,6 +59,12 @@ export const mainListItems = (persona) => {
           <BarChartIcon />
         </ListItemIcon>
         <ListItemText style={{color: 'black'}} primary="Your Rides" />
+      </ListItem>
+      <ListItem button component={Link} to="/CustomerSupport">
+        <ListItemIcon>
+          <SupportAgentIcon />
+        </ListItemIcon>
+        <ListItemText style={{color: 'black'}} primary="Customer Service" />
       </ListItem>
       </Link>
       
