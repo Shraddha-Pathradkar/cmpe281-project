@@ -12,6 +12,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import {Link, useHistory} from 'react-router-dom';
 import { CardActionArea } from "@mui/material";
+import DialogBox from "./DialogBox";
 
 const CustomerSupport =()=>{
     return(
@@ -25,43 +26,18 @@ const CustomerSupport =()=>{
           </Row>
           <Row style={{marginTop:"20px"}}>
          <Col >
-         <CardActionArea component="a" href="#" >   <Card sx={{ display: 'flex' }} style={{backgroundColor:""}}>
          
-         <CardMedia
-           component="img"
-           sx={{ width: 160, display: { xs: 'none', sm: 'block' } }}
-           image={"https://central.ring.com/wp-content/uploads/2019/06/contact-store-icons-default-14.png"}
-           alt={"img"}
-         />
-       </Card></CardActionArea>
+         <DialogBox width={160} image={"https://central.ring.com/wp-content/uploads/2019/06/contact-store-icons-default-14.png"}/>
       
            </Col>
            
            
          <Col >
-         <CardActionArea component="a" href="#" >  
-         <Card sx={{ display: 'flex' }} style={{backgroundColor:""}}>
-         
-         <CardMedia
-           component="img"
-           sx={{ width: 160, display: { xs: 'none', sm: 'block' } }}
-           image={"https://central.ring.com/wp-content/uploads/2019/06/store-icons-v2-16.png"}
-           alt={"img"}
-         />
-       </Card>
-       </CardActionArea></Col>
-         <Col >
-         <CardActionArea component="a" href="#" >  
-         <Card sx={{ display: 'flex' }} style={{backgroundColor:""}}>
+         <DialogBox width={160} image={"https://central.ring.com/wp-content/uploads/2019/06/store-icons-v2-16.png"}/>
 
-         <CardMedia
-           component="img"
-           sx={{ width: 200, display: { xs: 'none', sm: 'block' } }}
-           image={"https://theme.zdassets.com/theme_assets/430449/195f635fbf5babf318df50dbd220489087a1dd83.png"}
-           alt={"img"}
-         />
-       </Card>
-       </CardActionArea>
+          </Col>
+         <Col >
+         <DialogBox width={200} image={"https://theme.zdassets.com/theme_assets/430449/195f635fbf5babf318df50dbd220489087a1dd83.png"}/>
        </Col>
 
           </Row>
