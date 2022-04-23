@@ -10,16 +10,17 @@ import { Col, Row } from 'react-bootstrap';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
-import {useHistory} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 
 const CustomerSupport =()=>{
     return(
         <React.Fragment>
         <Container component="main" maxWidth="lg" sx={{ mb: 4 }}>
-        <Col style={{ }}>
+          <Row>
+          <Col style={{ }}>
         <br></br><br></br>
         <Typography variant="h6" gutterBottom>
-        Personal Details
+        Request a Call back.
       </Typography>
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6}>
@@ -148,6 +149,22 @@ const CustomerSupport =()=>{
               </Button>
       </Grid>
       </Col>
+      <Col>
+      </Col>
+          </Row>
+          <Row>
+            <Col>
+    <Typography variant="body2" color="text.secondary" align="center" sx={{ pt: 4 }} style={{ marginLeft:"480px",marginTop:"200px",  position: "fixed", alignItems:"center"}}> 
+      {'Copyright © '}
+      <Link color="inherit" href="https://mui.com/">
+        Your Website
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+ </Col>
+          </Row>
+      
       </Container>
     </React.Fragment>
     )
