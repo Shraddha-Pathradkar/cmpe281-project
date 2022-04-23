@@ -60,12 +60,13 @@ export const mainListItems = (persona) => {
         </ListItemIcon>
         <ListItemText style={{color: 'black'}} primary="Your Rides" />
       </ListItem>
-      <ListItem button component={Link} to="/CustomerSupport">
+      {persona === 'customer' &&  <ListItem button component={Link} to="/CustomerSupport">
         <ListItemIcon>
           <SupportAgentIcon />
         </ListItemIcon>
         <ListItemText style={{color: 'black'}} primary="Customer Service" />
-      </ListItem>
+      </ListItem>}
+     
       </Link>
       
       

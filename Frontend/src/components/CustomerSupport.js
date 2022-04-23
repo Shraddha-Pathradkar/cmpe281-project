@@ -11,150 +11,65 @@ import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import {Link, useHistory} from 'react-router-dom';
+import { CardActionArea } from "@mui/material";
 
 const CustomerSupport =()=>{
     return(
         <React.Fragment>
         <Container component="main" maxWidth="lg" sx={{ mb: 4 }}>
-          <Row>
-          <Col style={{ }}>
-        <br></br><br></br>
-        <Typography variant="h6" gutterBottom>
-        Request a Call back.
-      </Typography>
-      <Grid container spacing={3}>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="firstName"
-            name="firstName"
-            label="First name"
-            fullWidth
-            autoComplete="given-name"
-            variant="standard"
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="lastName"
-            name="lastName"
-            label="Last name"
-            fullWidth
-            autoComplete="family-name"
-            variant="standard"
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="phoneNumber"
-            variant="standard"
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="email"
-            name="email"
-            label="Email"
-            fullWidth
-            autoComplete="email"
-            variant="standard"
-          />
-        </Grid>
-        </Grid>
-        <br></br><br></br>
-        <Typography variant="h6" gutterBottom>
-        Address
-      </Typography>
-      <Grid container spacing={3}>
-        <Grid item xs={12}>
-          <TextField
-            required
-            id="address1"
-            name="address1"
-            label="Address line 1"
-            fullWidth
-            autoComplete="shipping address-line1"
-            variant="standard"
-          />
 
-        </Grid>
-        <Grid item xs={12}>
-          <TextField
-            id="address2"
-            name="address2"
-            label="Address line 2"
-            fullWidth
-            autoComplete="shipping address-line2"
-            variant="standard"
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="city"
-            name="city"
-            label="City"
-            fullWidth
-            autoComplete="shipping address-level2"
-            variant="standard"
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            id="state"
-            name="state"
-            label="State/Province/Region"
-            fullWidth
-            variant="standard"
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="zip"
-            name="zip"
-            label="Zip / Postal code"
-            fullWidth
-            autoComplete="shipping postal-code"
-            variant="standard"
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="country"
-            name="country"
-            label="Country"
-            fullWidth
-            autoComplete="shipping country"
-            variant="standard"
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <FormControlLabel
-            control={<Checkbox color="secondary" name="saveAddress" value="yes" />}
-            label="Use this address for payment details"
-          />
-        </Grid>
-        <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
-              >
-                Update Details
-              </Button>
-      </Grid>
-      </Col>
-      <Col>
-      </Col>
+          <Row>
+          <Typography variant="h3" gutterBottom style={{marginLeft:"400px",marginTop:"30px"}}>
+                  GET IN TOUCH.
+                </Typography>
           </Row>
+          <Row style={{marginTop:"20px"}}>
+         <Col >
+         <CardActionArea component="a" href="#" >   <Card sx={{ display: 'flex' }} style={{backgroundColor:""}}>
+         
+         <CardMedia
+           component="img"
+           sx={{ width: 160, display: { xs: 'none', sm: 'block' } }}
+           image={"https://central.ring.com/wp-content/uploads/2019/06/contact-store-icons-default-14.png"}
+           alt={"img"}
+         />
+       </Card></CardActionArea>
+      
+           </Col>
+           
+           
+         <Col >
+         <CardActionArea component="a" href="#" >  
+         <Card sx={{ display: 'flex' }} style={{backgroundColor:""}}>
+         
+         <CardMedia
+           component="img"
+           sx={{ width: 160, display: { xs: 'none', sm: 'block' } }}
+           image={"https://central.ring.com/wp-content/uploads/2019/06/store-icons-v2-16.png"}
+           alt={"img"}
+         />
+       </Card>
+       </CardActionArea></Col>
+         <Col >
+         <CardActionArea component="a" href="#" >  
+         <Card sx={{ display: 'flex' }} style={{backgroundColor:""}}>
+
+         <CardMedia
+           component="img"
+           sx={{ width: 200, display: { xs: 'none', sm: 'block' } }}
+           image={"https://theme.zdassets.com/theme_assets/430449/195f635fbf5babf318df50dbd220489087a1dd83.png"}
+           alt={"img"}
+         />
+       </Card>
+       </CardActionArea>
+       </Col>
+
+          </Row>
+
+
           <Row>
             <Col>
-    <Typography variant="body2" color="text.secondary" align="center" sx={{ pt: 4 }} style={{ marginLeft:"480px",marginTop:"200px",  position: "fixed", alignItems:"center"}}> 
+    <Typography variant="body2" color="text.secondary" align="center" sx={{ pt: 4 }} style={{ marginTop:"200px",marginLeft:"480px",  position: "fixed", alignItems:"center"}}> 
       {'Copyright © '}
       <Link color="inherit" href="https://mui.com/">
         Your Website
