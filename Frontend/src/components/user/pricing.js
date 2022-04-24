@@ -167,11 +167,11 @@ function PricingContent() {
           gutterBottom
         >
         
-          Payment Plan
+          Pricing
         </Typography>
-        <Typography variant="h5" align="center" color="text.secondary" component="p">
+        {/* <Typography variant="h5" align="center" color="text.secondary" component="p">
           Choose a payment plan to initiate your wallet.
-        </Typography>
+        </Typography> */}
       </Container>
       {/* End hero unit */}
       <Container maxWidth="md" component="main">
@@ -196,29 +196,11 @@ function PricingContent() {
                     align: 'center',
                   }}
                   sx={{
-                    backgroundColor: (theme) =>
-                      theme.palette.mode === 'light'
-                        ? theme.palette.grey[500]
-                        : theme.palette.grey[700],
+                    backgroundColor: "#afc1d0"
                   }}
                 />
                 <CardContent>
-                  <Box
-                    sx={{
-                      display: 'flex',
-                      justifyContent: 'center',
-                      alignItems: 'baseline',
-                      mb: 2,
-                    }}
-                  >
-                    <Typography component="h2" variant="h3" color="Blue">
-                      ${tier.price}
-                    </Typography>
-                    <Typography variant="h6" color="cadetblue">
-                      /month
-                    </Typography>
-                  </Box>
-                  <ul>
+                <ul>
                     {tier.description.map((line) => (
                       <Typography
                         component="li"
@@ -230,6 +212,23 @@ function PricingContent() {
                       </Typography>
                     ))}
                   </ul>
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'baseline',
+                      mb: 2,
+                    }}
+                  >
+                    
+                    <Typography component="h6" variant="h4" color="black">
+                      ${tier.price}
+                    </Typography>
+                    <Typography variant="h6" color="black">
+                      /month
+                    </Typography>
+                  </Box>
+                 
                 </CardContent>
                 <CardActions>
                   <Button fullWidth variant={tier.buttonVariant} onClick={()=>walletUpgradeHandler(tier.walletUpgrade)}>
