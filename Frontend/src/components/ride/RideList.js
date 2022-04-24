@@ -77,8 +77,8 @@ export default function RideList() {
         <>
         {!loading && (
         <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
-            <TableHead>
+        <Table sx={{ minWidth: 650 }} aria-label="simple table" >
+            <TableHead style={{backgroundColor:"#afc1d0"}}> 
             <TableRow>
                 <TableCell>Booking ID</TableCell>
                 <TableCell align="right">Status</TableCell>

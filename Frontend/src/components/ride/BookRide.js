@@ -86,6 +86,7 @@ export default function BookRide() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+
       <AppBar
         position="absolute"
         color="default"
@@ -96,7 +97,9 @@ export default function BookRide() {
         }}
       >
       </AppBar>
-      <Container component="main" maxWidth="m" sx={{ mb: 4 }}>
+      <div style={{backgroundColor:"#afc1d0", paddingTop:"50px"}}>
+
+      <Container component="main" maxWidth="m" sx={{ mb: 4 }} style={{ maxWidth:"1000px"}}>
         <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
           <Typography component="h1" variant="h4" align="center">
             Ride Booking
@@ -108,7 +111,7 @@ export default function BookRide() {
               </Step>
             ))}
           </Stepper>
-          <React.Fragment>
+          <React.Fragment >
             {activeStep === steps.length ? (
               <>
               {!loading && (
@@ -116,9 +119,9 @@ export default function BookRide() {
                 <Typography variant="h5" gutterBottom>
                   Thank you for your order.
                 </Typography>
-                <Typography variant="subtitle1">
+                {/* <Typography variant="subtitle1">
                   Thank you for using RentalAV. Your Ride is booked. Have a safe journey
-                </Typography>
+                </Typography> */}
               </React.Fragment>
               )}
               </>
@@ -147,6 +150,7 @@ export default function BookRide() {
         </Paper>
         <Copyright />
       </Container>
+      </div>
     </ThemeProvider>
   );
 }

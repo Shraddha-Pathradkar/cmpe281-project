@@ -7,7 +7,7 @@ import {useHistory} from 'react-router-dom';
 
 const images = [
   {
-    url: 'https://www.avcconsortium.org/wp-content/uploads/2020/11/Clip-Group_.png',
+    url: 'https://www.tplusride.com/wp-content/uploads/2018/07/June-blog-post-image.jpg',
     title: 'Book Your Ride',
     width: '100%',
   }
