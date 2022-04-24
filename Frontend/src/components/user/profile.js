@@ -15,9 +15,9 @@ import Button from '@mui/material/Button';
 import {updateUserProfile, getUserDetails} from '../../services/userService';
 import {useHistory} from 'react-router-dom';
 
-export default function Profile(props) {  
+export default function Profile(props) {
   const history = useHistory();
-  
+
   const [loading, setLoading] = useState(true);
 
   const authContext = useContext(AuthContext);
@@ -31,12 +31,12 @@ export default function Profile(props) {
 
   const fetchUserDetails = async () =>{
     setLoading(true);
-    
+
     const res = await getUserDetails(userId);
     if(res.status === 200){
       setUser(res.data.payload);
       setLoading(false);
-    } 
+    }
     else{
       console.log('Error Occured');
     }
@@ -46,28 +46,28 @@ export default function Profile(props) {
   const updateUserData = async () => {
     const obj = {
       userId: user.userId,
-      fname : document.getElementById('firstName').value === '' ?  
-        user.fname : 
+      fname : document.getElementById('firstName').value === '' ?
+        user.fname :
         document.getElementById('firstName').value,
-      lname : document.getElementById('lastName').value === '' ? 
+      lname : document.getElementById('lastName').value === '' ?
         user.lname :
         document.getElementById('lastName').value,
-      email : document.getElementById('email').value === '' ? 
+      email : document.getElementById('email').value === '' ?
         user.email :
         document.getElementById('email').value,
       phone : document.getElementById('phoneNumber').value === ''?
         user.phone :
         document.getElementById('phoneNumber').value,
-      zip : document.getElementById('zip').value === '' ? 
+      zip : document.getElementById('zip').value === '' ?
         user.zip :
         document.getElementById('zip').value,
       address : document.getElementById('address1').value === '' ?
         user.address :
         document.getElementById('address1').value,
-      country : document.getElementById('country').value === '' ? 
+      country : document.getElementById('country').value === '' ?
         user.country :
         document.getElementById('country').value,
-      state : document.getElementById('state').value === '' ?  
+      state : document.getElementById('state').value === '' ?
         user.state :
         document.getElementById('state').value,
       walletBalance: 890,
@@ -80,7 +80,7 @@ export default function Profile(props) {
       setTimeout(()=>{
         history.push('/Dashboard');
       }, 500);
-    } 
+    }
     else{
       console.log('Error Occuered');
     }
@@ -93,10 +93,10 @@ export default function Profile(props) {
       <React.Fragment>
         {!loading && (
         <Container component="main" maxWidth="lg" sx={{ mb: 4 }}>
-         <Row>   
+         <Row>
         <Col>
-        <Paper variant="outlined" sx={{ my: { xs: 1, md: 1 }, p: { xs: 1, md: 1 } }}>
-            <Card style={{maxHeight:"400px", objectFit:"cover" , maxWidth:"400px"}}>
+        <Paper variant="" sx={{ my: { xs: 1, md: 1 }, p: { xs: 1, md: 1 } }}>
+            <Card style={{maxHeight:"300px", objectFit:"cover" , maxWidth:"300px"}}>
             <CardMedia
             component="img"
             // sx={{ width: 160, display: { xs: 'none', sm: 'block' } }}
@@ -162,7 +162,7 @@ export default function Profile(props) {
         </Grid>
         <br></br><br></br>
         <Typography variant="h6" gutterBottom>
-        Address
+        Billing Address
       </Typography>
       <Grid container spacing={3}>
         <Grid item xs={12}>
@@ -215,7 +215,7 @@ export default function Profile(props) {
             required
             id="zip"
             name="zip"
-            label="Zip / Postal code"
+            label="Zip Code"
             fullWidth
             autoComplete="shipping postal-code"
             variant="standard"

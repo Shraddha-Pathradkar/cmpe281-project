@@ -45,22 +45,22 @@ export default function RideList() {
 
     const fetchRideList = async () => {
         const {user} = authContext;
-        
+
         const resp = await fetchRideListFromDB(user.userId, persona);
         if(resp.status === 200){
             const rows = [];
             console.log(resp.data.payload);
             resp.data.payload.forEach(el=> {
                 console.log(el);
-                const { carNumber, carId, rideId, source, 
+                const { carNumber, carId, rideId, source,
                     destination, status, chargePerDay} = el;
                 rows.push({
                     carId,
-                    carNumber, 
-                    rideId, 
-                    source, 
+                    carNumber,
+                    rideId,
+                    source,
                     destination,
-                    status, 
+                    status,
                     chargePerDay,
                 })
             });
@@ -80,12 +80,12 @@ export default function RideList() {
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
             <TableRow>
-                <TableCell>Ride Number</TableCell>
-                <TableCell>Source</TableCell>
-                <TableCell align="right">Destination</TableCell>
-                <TableCell align="right">Charge Per Daye</TableCell>
-                <TableCell align="right">Car Number</TableCell>
+                <TableCell>Booking ID</TableCell>
                 <TableCell align="right">Status</TableCell>
+                <TableCell align="right">Source</TableCell>
+                <TableCell align="right">Destination</TableCell>
+                <TableCell align="right">Per Day Charge</TableCell>
+                <TableCell align="right">Car ID</TableCell>
             </TableRow>
             </TableHead>
             <TableBody>
