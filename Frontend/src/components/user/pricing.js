@@ -39,25 +39,25 @@ const tiers = [
     price: '0',
     walletUpgrade: 0,
     description: [
-      '100$ signup rewards',
-      'Valid for 3 months',
-      'Help center access',
-      'Email support',
+      ' 100$ signup rewards',
+      ' Valid for 3 months',
+      ' Help center access',
+      ' Email support',
     ],
     buttonText: 'Sign up for free',
-    buttonVariant: 'contained',
+    buttonVariant: 'outlined',
   },
   {
     title: 'Pro',
-    price: '15',
-    walletUpgrade: 15,
+    price: '10',
+    walletUpgrade: 10,
     description: [
-      '100$ Signup rewards',
-      '100$ Addtional wallet rewards',
-      'Help center access',
-      'Priority email support',
+      ' 100$ Signup rewards',
+      ' 100$ Addtional wallet rewards',
+      ' Help center access',
+      ' Priority email support',
     ],
-    buttonText: 'Get started',
+    buttonText: 'CHOOSE',
     buttonVariant: 'outlined',
   },
   {
@@ -65,12 +65,13 @@ const tiers = [
     price: '30',
     walletUpgrade: 30,
     description: [
-      '100$ Signup rewards',
-      '200$ Addtional wallet rewards',
-      'Help center access',
-      'Phone & email support',
+      ' 100$ Signup rewards',
+      ' 200$ Addtional wallet rewards',
+      ' Help center access',
+      ' Phone & email support',
+      
     ],
-    buttonText: 'Get Started',
+    buttonText: 'CHOOSE',
     buttonVariant: 'outlined',
   },
 ];
@@ -106,7 +107,7 @@ function PricingContent() {
   const [open, setOpen] = useState(false);
   const history = useHistory();
   const {user, setUser, token, updateLocalStorage} = authContext;
-
+  
   const handleClose = () => {
     setOpen(false);
   } 
@@ -150,11 +151,13 @@ function PricingContent() {
       <AppBar
         position="static"
         color="default"
+        
         elevation={0}
         sx={{ borderBottom: (theme) => `1px solid ${theme.palette.divider}` }}
       >
       </AppBar>
       {/* Hero unit */}
+      
       <Container disableGutters maxWidth="sm" component="main" sx={{ pt: 8, pb: 6 }}>
         <Typography
           component="h1"
@@ -163,6 +166,7 @@ function PricingContent() {
           color="text.primary"
           gutterBottom
         >
+        
           Payment Plan
         </Typography>
         <Typography variant="h5" align="center" color="text.secondary" component="p">
@@ -179,6 +183,7 @@ function PricingContent() {
               key={tier.title}
               xs={12}
               sm={tier.title === 'Enterprise' ? 12 : 6}
+              action={tier.title === 'Enterprise' ? <StarIcon /> : null}
               md={4}
             >
               <Card>
@@ -193,7 +198,7 @@ function PricingContent() {
                   sx={{
                     backgroundColor: (theme) =>
                       theme.palette.mode === 'light'
-                        ? theme.palette.grey[200]
+                        ? theme.palette.grey[500]
                         : theme.palette.grey[700],
                   }}
                 />
@@ -206,11 +211,11 @@ function PricingContent() {
                       mb: 2,
                     }}
                   >
-                    <Typography component="h2" variant="h3" color="text.primary">
+                    <Typography component="h2" variant="h3" color="Blue">
                       ${tier.price}
                     </Typography>
-                    <Typography variant="h6" color="text.secondary">
-                      /mo
+                    <Typography variant="h6" color="cadetblue">
+                      /month
                     </Typography>
                   </Box>
                   <ul>
