@@ -27,17 +27,17 @@ const CustomerSupport =()=>{
           <Row style={{marginTop:"20px"}}>
          <Col >
          
-         <DialogBox width={160} image={"https://central.ring.com/wp-content/uploads/2019/06/contact-store-icons-default-14.png"}/>
+         <DialogBox type="Chat" width={160} image={"https://central.ring.com/wp-content/uploads/2019/06/contact-store-icons-default-14.png"}/>
       
            </Col>
            
            
          <Col >
-         <DialogBox width={160} image={"https://central.ring.com/wp-content/uploads/2019/06/store-icons-v2-16.png"}/>
+         <DialogBox type="Call" width={160} image={"https://central.ring.com/wp-content/uploads/2019/06/store-icons-v2-16.png"}/>
 
           </Col>
          <Col >
-         <DialogBox width={200} image={"https://theme.zdassets.com/theme_assets/430449/195f635fbf5babf318df50dbd220489087a1dd83.png"}/>
+         <DialogBox type="Email" width={210} image={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAoGoMJI7BlEhLrM6IrlJh8_sNeQucofRdDQ&usqp=CAU"}/>
        </Col>
 
           </Row>

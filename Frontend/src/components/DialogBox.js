@@ -11,6 +11,8 @@ import CloseIcon from '@mui/icons-material/Close';
 import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
+import { Col, Row } from 'react-bootstrap';
+import { Input } from '@mui/material';
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
@@ -50,7 +52,7 @@ BootstrapDialogTitle.propTypes = {
   onClose: PropTypes.func.isRequired,
 };
 
-export default function DialogBox({width,image}) {
+export default function DialogBox({type,width,image}) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -59,11 +61,46 @@ export default function DialogBox({width,image}) {
   const handleClose = () => {
     setOpen(false);
   };
+  const DialogContent=()=>{
+if (type==="Chat"){
+  return (
+    <h1>Chat</h1>
+
+  )
+}
+else if(type==="Call"){
+  return (
+    <React.Fragment>
+      <Row>
+        <Col>
+        <Button>Request a Call</Button>
+        </Col>
+        <Col>
+        <Button>Call Now</Button>
+        </Col>
+      </Row>
+    </React.Fragment>
+  )
+} 
+else{
+  return (
+    <React.Fragment>
+        <Col>
+        <Input placeholder='Subject'></Input>
+        </Col>
+        <Col>
+        <Input placeholder='Message'>Message</Input>
+        </Col>
+    </React.Fragment>
+  )
+}
+
+  }
 
   return (
     <div>
 
-<Card sx={{ display: 'flex' }} style={{backgroundColor:""}} onClick={handleClickOpen}>
+<Card sx={{ display: 'flex' }} style={{backgroundColor:"#A7D3FF"}} onClick={handleClickOpen} >
            <CardMedia
            component="img"
            sx={{ width: {width}, display: { xs: 'none', sm: 'block' } }}
@@ -74,36 +111,26 @@ export default function DialogBox({width,image}) {
       {/* <Button variant="outlined" onClick={handleClickOpen}>
         Open dialog
       </Button> */}
+
       <BootstrapDialog
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
         open={open}
+        
       >
         <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}>
-          Modal title
+          Welcome, we are happy to help!
         </BootstrapDialogTitle>
-        <DialogContent dividers>
-          <Typography gutterBottom>
-            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-            consectetur ac, vestibulum at eros.
-          </Typography>
-          <Typography gutterBottom>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
-            Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-          </Typography>
-          <Typography gutterBottom>
-            Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus
-            magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec
-            ullamcorper nulla non metus auctor fringilla.
-          </Typography>
+        <DialogContent dividers  >
+          {DialogContent()}
+
         </DialogContent>
         <DialogActions>
           <Button autoFocus onClick={handleClose}>
-            Save changes
+            Send
           </Button>
         </DialogActions>
       </BootstrapDialog>
-    </div>
+      </div>
   );
 }
