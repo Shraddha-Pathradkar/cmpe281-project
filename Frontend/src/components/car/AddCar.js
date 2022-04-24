@@ -81,7 +81,6 @@ const AddCar = () => {
 
       <CssBaseline />
       <div style={{backgroundImage:`url(https://innovationatwork.ieee.org/wp-content/uploads/2019/08/bigstock-Autonomous-Smart-Driverless-Ca-311027983_1024X684.png)`}}>
-
       <AppBar
         position="absolute"
         color="default"
@@ -146,9 +145,10 @@ const AddCar = () => {
             )}
           </React.Fragment>
         </Paper>
-        <Copyright />
       </Container>
       </div>
+      <Copyright />
+
   
     </ThemeProvider>
   );
