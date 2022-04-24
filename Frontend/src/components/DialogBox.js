@@ -121,7 +121,7 @@ else{
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
         open={open}
-        
+        fullWidth="true"      
       >
         <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}>
           Welcome, we are happy to help!

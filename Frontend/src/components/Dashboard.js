@@ -199,7 +199,7 @@ const DashboardContent = () => {
                 </Paper>
               </Grid>
               {/* Recent Deposits */}
-              <Grid item xs={12} md={4} lg={5}>
+              <Grid item xs={12} md={8} lg={7}>
                 <Paper
                   sx={{
                     p: 2,
