@@ -48,7 +48,7 @@ const AppBar = styled(MuiAppBar, {
 })(({ theme, open }) => ({
   zIndex: theme.zIndex.drawer + 1,
   marginTop:'100px',
-  backgroundColor:'#afc1d0',
+  backgroundColor:'#363c78',
   transition: theme.transitions.create(['width', 'margin'], {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
@@ -135,7 +135,7 @@ const DashboardContent = () => {
             <Typography
               component="h1"
               variant="h6"
-              color="black"
+              color="White"
               noWrap
               sx={{ flexGrow: 1 }}
               fontFamily="Roboto"
