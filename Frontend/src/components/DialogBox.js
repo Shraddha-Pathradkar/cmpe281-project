@@ -64,7 +64,12 @@ export default function DialogBox({type,width,image}) {
   const DialogContent=()=>{
 if (type==="Chat"){
   return (
-    <h1>Chat</h1>
+    <React.Fragment>
+   
+    <Col>
+    <Input placeholder='Message'>Message</Input>
+    </Col>
+</React.Fragment>
 
   )
 }
