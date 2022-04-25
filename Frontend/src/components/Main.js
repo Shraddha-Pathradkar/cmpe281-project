@@ -60,11 +60,11 @@ const Main = () => {
         <div>
             {!loading && (
                 <ProvideAuth value={{user, authState, token}}>
-                    
+
                     <Router>
                         <Route path="/">
-                            {/* <Login></Login> */}
-                            <NavBar></NavBar>
+                            {/* <Login></Login>
+                            <NavBar></NavBar>*/}
                         </Route>
                         <Route path="/login">
                             <Login></Login>
@@ -78,15 +78,15 @@ const Main = () => {
                         <PrivateRoute path="/pricing">
                             <Pricing></Pricing>
                         </PrivateRoute>
-                        
+
                         <PrivateRoute path="/searchCar">
                             <SearchCar></SearchCar>
                         </PrivateRoute>
-                        
+
                         <PrivateRoute path="/AddCar">
                                 <AddCar></AddCar>
                         </PrivateRoute>
-                        
+
                         <PrivateRoute path="/CarList">
                                 <CarList persona={'owner'}/>
                         </PrivateRoute>

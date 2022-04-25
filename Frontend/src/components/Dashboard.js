@@ -30,7 +30,7 @@ import BookRideButton from './ride/BookRideButton';
 
 function Copyright(props) {
   return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props} style={{ marginLeft:"480px",marginTop:"200px",  position: "fixed", alignItems:"center"}}> 
+    <Typography variant="body2" color="text.secondary" align="center" {...props} style={{ marginLeft:"480px",marginTop:"200px",  position: "fixed", alignItems:"center"}}>
       {'Copyright © '}
       <Link color="inherit" href="https://mui.com/">
         Your Website
@@ -112,9 +112,9 @@ const DashboardContent = () => {
     <div >
     {(
     <ThemeProvider theme={mdTheme} >
-      <Box sx={{ display: 'flex' }}>
+      <Box sx={{ display: 'flex' }} >
         <CssBaseline />
-        <AppBar position="absolute" open={open} style={{backgroundColor:""}}>
+{/*        <AppBar position="absolute" open={open} style={{backgroundColor:""}}>
           <Toolbar
             sx={{
               pr: '24px', // keep right padding when drawer closed
@@ -151,7 +151,7 @@ const DashboardContent = () => {
             </IconButton>
           </Toolbar>
         </AppBar>
-        <Drawer variant="permanent" open={open}>
+*/}        <Drawer variant="permanent" open={open}>
           <Toolbar
             sx={{
               display: 'flex',
@@ -160,6 +160,18 @@ const DashboardContent = () => {
               px: [1],
             }}
           >
+          <Typography
+            component="h1"
+            variant="h6"
+            color="Black"
+            noWrap
+            sx={{ flexGrow: 1 }}
+            fontFamily="Roboto"
+            fontWeight= "bold"
+
+          >
+            AV Rental System
+          </Typography>
             <IconButton onClick={toggleDrawer}>
               <ChevronLeftIcon />
             </IconButton>
@@ -181,8 +193,9 @@ const DashboardContent = () => {
           }}
         >
           <Toolbar />
-          <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-            <Grid container spacing={3}>
+          <Container maxWidth="100" sx={{ mt: 10, mb: 4 }} >
+          <h2 style ={{align: "left"}}>Welcome User ! </h2>
+            <Grid container spacing={3} >
               {/* Chart */}
               <Grid item xs={12} md={8} lg={7}>
                 <Paper
@@ -194,13 +207,14 @@ const DashboardContent = () => {
                   }}
                 >
                   {/* <Chart /> */}
-                  
+                  <h2>Book your Ride in 3 easy Steps! <br/>
+                  Lets get you started.</h2>
                   <BookRideButton/>
                 </Paper>
               </Grid>
               {/* Recent Deposits */}
-              <Grid item xs={12} md={8} lg={7}>
-                <Paper
+              <Grid item xs={12} md={8} lg={5}>
+                <Paper maxWidth="sm"
                   sx={{
                     p: 2,
                     display: 'flex',
@@ -213,6 +227,7 @@ const DashboardContent = () => {
               </Grid>
               {/* Recent Orders */}
               <Grid item xs={12}>
+              <h2> Trip Status </h2>
                 <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
                   <InProgressRideList/>
                 </Paper>

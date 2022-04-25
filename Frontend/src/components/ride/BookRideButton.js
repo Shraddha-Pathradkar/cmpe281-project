@@ -7,15 +7,22 @@ import {useHistory} from 'react-router-dom';
 
 const images = [
   {
-    url: 'https://www.tplusride.com/wp-content/uploads/2018/07/June-blog-post-image.jpg',
+    // url: 'https://www.tplusride.com/wp-content/uploads/2018/07/June-blog-post-image.jpg',
     title: 'Book Your Ride',
-    width: '100%',
+    width: '30%',
+    align: "center",
+
   }
 ];
 
 const ImageButton = styled(ButtonBase)(({ theme }) => ({
   position: 'relative',
-  height: 200,
+  height: 60,
+  marginLeft: 230,
+  marginTop: 30,
+  borderRadius: 10,
+  // backgroundColor: theme.palette.common.black,
+  backgroundColor: "#363C78",
   [theme.breakpoints.down('sm')]: {
     width: '100% !important', // Overrides inline-style
     height: 100,
@@ -40,7 +47,7 @@ const ImageSrc = styled('span')({
   right: 0,
   top: 0,
   bottom: 0,
-  backgroundSize: 'cover',
+  // backgroundSize: 'cover',
   backgroundPosition: 'center 40%',
 });
 
@@ -82,7 +89,7 @@ export default function BookRideButton() {
     const redirectToAddCar = () => {
         history.push('./searchCar');
       }
-      
+
     return (
         <Box sx={{ display: 'flex', flexWrap: 'wrap', minWidth: 300, width: '100%' }}>
         {images.map((image) => (

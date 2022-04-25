@@ -14,37 +14,38 @@ function Wallet(props) {
   const authContext = useContext(AuthContext);
   const { user, loading } = authContext;
     var post = {
-        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQih8in78PcxaWTMeVsyXyhdw50yrRW4VX-jg&usqp=CAU",
+        // image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQih8in78PcxaWTMeVsyXyhdw50yrRW4VX-jg&usqp=CAU",
         imageLabel:"img"
     }
   return (
     <>
     {!loading && (
-    <Grid item xs={12} md={15}                   
+    <Grid item xs={12} md={15}
     >
       <CardActionArea component="a" href="#" >
         <Card sx={{ display: 'flex' }} style={{backgroundColor:""}}>
           <CardContent sx={{ flex: 1 }}>
           <Typography variant="subtitle1" paragraph>
-              {/* {post.description} */}
-              Wallet
+              {/* {post.description} Your Balance*/}
+              Your Current Plan
             </Typography>
             <Typography variant="subtitle1" color="text.secondary">
-              {/* {post.date} */}
-              Current balance
+              {/* {post.date} current plan */}
+              Free Tier
             </Typography>
-            <Typography component="h2" variant="h2">
-              {user.walletBalance > 0 ? user.walletBalance : 0} $
+            <Typography component="h3" variant="h3">
+              {/*${user.walletBalance > 0 ? user.walletBalance : 0}*/}
+              0$/month
             </Typography>
-            
+
           </CardContent>
-          <CardMedia
+{/*          <CardMedia
             component="img"
             sx={{ width: 160, display: { xs: 'none', sm: 'block' } }}
             image={post.image}
             alt={post.imageLabel}
           />
-        </Card>
+*/}        </Card>
       </CardActionArea>
     </Grid>
     )}
