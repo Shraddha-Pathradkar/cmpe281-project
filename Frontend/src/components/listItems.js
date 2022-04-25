@@ -6,18 +6,21 @@ import ListSubheader from '@mui/material/ListSubheader';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import PeopleIcon from '@mui/icons-material/People';
+import PersonIcon from '@mui/icons-material/Person';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import LayersIcon from '@mui/icons-material/Layers';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import { Redirect } from 'react-router-dom';
 import ListItemButton from '@mui/material/ListItemButton';
 import SupportAgentIcon from '@mui/icons-material/SupportAgent';
+import PaymentIcon from '@mui/icons-material/Payment';
+import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 import { Link } from "react-router-dom";
 export const mainListItems = (persona) => {
   console.log(persona);
   return(
     <div>
-      <ListItem button> 
+      <ListItem button>
         <ListItemIcon>
           <DashboardIcon />
         </ListItemIcon>
@@ -25,13 +28,13 @@ export const mainListItems = (persona) => {
       </ListItem>
       <ListItem button component={Link} to="/profile">
         <ListItemIcon>
-          <ShoppingCartIcon />
+          <PersonIcon />
         </ListItemIcon>
               <ListItemText style={{color: 'black'}} primary="Profile" />
           </ListItem>
       <ListItem button component={Link} to="/pricing">
         <ListItemIcon>
-          <PeopleIcon />
+          <PaymentIcon />
         </ListItemIcon>
         <ListItemText style={{color: 'black'}} primary="Payment Plan" />
       </ListItem>
@@ -56,7 +59,7 @@ export const mainListItems = (persona) => {
       }}}>
       <ListItem button >
         <ListItemIcon>
-          <BarChartIcon />
+          <DirectionsCarIcon />
         </ListItemIcon>
         <ListItemText style={{color: 'black'}} primary="Your Rides" />
       </ListItem>
@@ -66,10 +69,10 @@ export const mainListItems = (persona) => {
         </ListItemIcon>
         <ListItemText style={{color: 'black'}} primary="Customer Service" />
       </ListItem>}
-     
+
       </Link>
-      
-      
+
+
       {(persona === 'owner' || persona === 'admin' )&& (
         <ListItem button component={Link} to='/AddCar'>
         <ListItemIcon>
