@@ -14,12 +14,13 @@ function Wallet(props) {
   const authContext = useContext(AuthContext);
   const { user, loading } = authContext;
     var post = {
-        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQih8in78PcxaWTMeVsyXyhdw50yrRW4VX-jg&usqp=CAU",
+        // image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQih8in78PcxaWTMeVsyXyhdw50yrRW4VX-jg&usqp=CAU",
         imageLabel:"img"
     }
   return (
     <>
     {!loading && (
+<<<<<<< HEAD
   
       <CardActionArea component="a" href="#" style={{maxHeight:"200px",maxWidth:"200px", paddingLeft:"10px"}} >
         <Card sx={{ display: 'flex' }} style={{backgroundColor:""}}>
@@ -31,11 +32,39 @@ function Wallet(props) {
            
             <Typography component="h3" variant="h3">
               {user.walletBalance > 0 ? user.walletBalance : 0} $
+=======
+    <Grid item xs={12} md={15}
+    >
+      <CardActionArea component="a" href="#" >
+        <Card sx={{ display: 'flex' }} style={{backgroundColor:""}}>
+          <CardContent sx={{ flex: 1 }}>
+          <Typography variant="subtitle1" paragraph>
+              {/* {post.description} Your Balance*/}
+              Your Current Plan
             </Typography>
-            
+            <Typography variant="subtitle1" color="text.secondary">
+              {/* {post.date} current plan */}
+              Free Tier
+            </Typography>
+            <Typography component="h3" variant="h3">
+              {/*${user.walletBalance > 0 ? user.walletBalance : 0}*/}
+              0$/month
+>>>>>>> 0a272631b34ccb42e8765182a820605a19ce5175
+            </Typography>
+
           </CardContent>
+<<<<<<< HEAD
           
         </Card>
+=======
+{/*          <CardMedia
+            component="img"
+            sx={{ width: 160, display: { xs: 'none', sm: 'block' } }}
+            image={post.image}
+            alt={post.imageLabel}
+          />
+*/}        </Card>
+>>>>>>> 0a272631b34ccb42e8765182a820605a19ce5175
       </CardActionArea>
     )}
     </>
