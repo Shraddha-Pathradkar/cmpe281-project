@@ -94,7 +94,7 @@ export default function Profile(props) {
         {!loading && (
         <Container component="main" maxWidth="lg" sx={{ mb: 4 }}>
          <Row>
-        <Col>
+        {/* <Col>
         <Paper variant="" sx={{ my: { xs: 1, md: 1 }, p: { xs: 1, md: 1 } }}>
             <Card style={{maxHeight:"300px", objectFit:"cover" , maxWidth:"300px"}}>
             <CardMedia
@@ -108,7 +108,7 @@ export default function Profile(props) {
         <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
         <Wallet></Wallet>
         </Paper>
-        </Col>
+        </Col> */}
         <Col>
         <br></br><br></br>
         <Typography variant="h6" gutterBottom>
@@ -246,6 +246,7 @@ export default function Profile(props) {
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
                 onClick={updateUserData}
+                style={{backgroundColor:"black"}}
               >
                 Update Details
               </Button>

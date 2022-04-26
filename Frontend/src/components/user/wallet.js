@@ -20,33 +20,23 @@ function Wallet(props) {
   return (
     <>
     {!loading && (
-    <Grid item xs={12} md={15}                   
-    >
-      <CardActionArea component="a" href="#" >
+  
+      <CardActionArea component="a" href="#" style={{maxHeight:"200px",maxWidth:"200px", paddingLeft:"10px"}} >
         <Card sx={{ display: 'flex' }} style={{backgroundColor:""}}>
           <CardContent sx={{ flex: 1 }}>
           <Typography variant="subtitle1" paragraph>
               {/* {post.description} */}
-              Wallet
-            </Typography>
-            <Typography variant="subtitle1" color="text.secondary">
-              {/* {post.date} */}
               Current balance
             </Typography>
-            <Typography component="h2" variant="h2">
+           
+            <Typography component="h3" variant="h3">
               {user.walletBalance > 0 ? user.walletBalance : 0} $
             </Typography>
             
           </CardContent>
-          <CardMedia
-            component="img"
-            sx={{ width: 160, display: { xs: 'none', sm: 'block' } }}
-            image={post.image}
-            alt={post.imageLabel}
-          />
+          
         </Card>
       </CardActionArea>
-    </Grid>
     )}
     </>
   );

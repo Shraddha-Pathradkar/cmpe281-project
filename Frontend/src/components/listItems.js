@@ -16,8 +16,8 @@ import { Link } from "react-router-dom";
 export const mainListItems = (persona) => {
   console.log(persona);
   return(
-    <div>
-      <ListItem button> 
+    <div >
+      <ListItem button > 
         <ListItemIcon>
           <DashboardIcon />
         </ListItemIcon>
@@ -29,12 +29,12 @@ export const mainListItems = (persona) => {
         </ListItemIcon>
               <ListItemText style={{color: 'black'}} primary="Profile" />
           </ListItem>
-      <ListItem button component={Link} to="/pricing">
+      {/* <ListItem button component={Link} to="/pricing">
         <ListItemIcon>
           <PeopleIcon />
         </ListItemIcon>
         <ListItemText style={{color: 'black'}} primary="Payment Plan" />
-      </ListItem>
+      </ListItem> */}
       {(persona === 'owner' || persona === 'admin') && (
       <Link to={{
         pathname: '/RideList',

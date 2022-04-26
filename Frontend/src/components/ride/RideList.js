@@ -9,6 +9,7 @@ import Paper from '@mui/material/Paper';
 import {fetchRideListFromDB} from '../../services/rideService';
 import { AuthContext } from '../authenticaion/ProvideAuth';
 import {useLocation} from 'react-router-dom';
+import { Container } from '@mui/material';
 
 function createData(rideNumber, carNumber, date,  charge) {
   return { rideNumber, carNumber, charge, date };
@@ -75,10 +76,11 @@ export default function RideList() {
 
     return (
         <>
+        <Container style={{paddingTop:"50px"}}>
         {!loading && (
-        <TableContainer component={Paper}>
+        <TableContainer component={Paper} >
         <Table sx={{ minWidth: 650 }} aria-label="simple table" >
-            <TableHead style={{backgroundColor:"#afc1d0"}}> 
+            <TableHead style={{backgroundColor:"#FFFDD0"}}> 
             <TableRow>
                 <TableCell>Booking ID</TableCell>
                 <TableCell align="right">Status</TableCell>
@@ -109,6 +111,7 @@ export default function RideList() {
         </Table>
         </TableContainer>
         )}
+        </Container>
         </>
     );
 }

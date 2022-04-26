@@ -80,7 +80,7 @@ const AddCar = () => {
     <ThemeProvider theme={theme} backgroundcolor='blue' >
 
       <CssBaseline />
-      <div style={{backgroundImage:`url(https://innovationatwork.ieee.org/wp-content/uploads/2019/08/bigstock-Autonomous-Smart-Driverless-Ca-311027983_1024X684.png)`}}>
+      <div >
       <AppBar
         position="absolute"
         color="default"
@@ -97,15 +97,15 @@ const AddCar = () => {
           </Typography>
         </Toolbar> */}
       </AppBar>
-      <Container component="main" maxWidth="sm" sx={{ mb: 4 }} >
-        <Paper variant="outlined"   sx={{ my: { xs: 5, md: 8 }, p: { xs: 5, md: 8} }}>
+      <Container component="main" sx={{ mb: 4 }} style={{maxHeight:"300px", }}>
+        <Paper variant="outlined"   sx={{ my: { xs: 5, md: 8 }, p: { xs: 5, md: 8} }}  style={{ backgroundColor:"#FFFDD0"}}>
           <Typography component="h1" variant="h4" align="center">
             ADD CAR
           </Typography>
           <Stepper activeStep={activeStep} sx={{ pt: 3, pb: 5 }}>
             {steps.map((label) => (
               <Step key={label}>
-                <StepLabel> <Typography style={{color:"gray"}} component="h6" variant="h6" align="center" color="Gray">{label}</Typography></StepLabel>
+                <StepLabel> <Typography style={{color:"black"}} component="h6" variant="h6" align="center" color="black" fontWeight={"bold"}>{label}</Typography></StepLabel>
               </Step>
             ))}
           </Stepper>

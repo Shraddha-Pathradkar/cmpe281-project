@@ -101,7 +101,7 @@ const InProgressRideList = props => {
         {inProgressRides.length > 0 ? (
             <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
-                <TableHead>
+                <TableHead style={{backgroundColor:"#FFFDD0"}}>
                 <TableRow>
                     <TableCell>Source</TableCell>
                     <TableCell align="right">Destination</TableCell>

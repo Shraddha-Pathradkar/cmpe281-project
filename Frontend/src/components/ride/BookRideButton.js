@@ -4,6 +4,8 @@ import Box from '@mui/material/Box';
 import ButtonBase from '@mui/material/ButtonBase';
 import Typography from '@mui/material/Typography';
 import {useHistory} from 'react-router-dom';
+import { Button } from 'react-bootstrap';
+import { Paper } from '@mui/material';
 
 const images = [
   {
@@ -84,8 +86,29 @@ export default function BookRideButton() {
       }
       
     return (
-        <Box sx={{ display: 'flex', flexWrap: 'wrap', minWidth: 300, width: '100%' }}>
-        {images.map((image) => (
+        <Box sx={{ display: 'flex', flexWrap: 'wrap', minWidth: 100, width: '100%',paddingBottom:"30px",paddingTop:"25px" }}>
+          <Paper style={{height:"100px", width:"200px"}}>
+            <Typography 
+            type="button"
+            
+
+                    component="span"
+                    variant="h5"
+                    color="black"
+                    sx={{
+                      position: 'relative',
+                      p: 4,
+                      pt: 2,
+                      pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
+                  }}
+                  onClick={redirectToAddCar}
+                  fontWeight="bold"
+                  
+                  
+                  >Book Your Ride</Typography>
+            
+          </Paper>
+        {/* {images.map((image) => (
             <ImageButton
             focusRipple
             key={image.title}
@@ -114,7 +137,7 @@ export default function BookRideButton() {
                 </Typography>
             </Image>
             </ImageButton>
-        ))}
+        ))} */}
         </Box>
     );
 }

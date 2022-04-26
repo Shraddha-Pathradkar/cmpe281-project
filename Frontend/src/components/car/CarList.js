@@ -9,6 +9,7 @@ import Paper from '@mui/material/Paper';
 import {fetchCarListFromDB, fetchCarListFromDBForOwner} from '../../services/carService';
 import Radio from '@mui/material/Radio';
 import { AuthContext } from '../authenticaion/ProvideAuth';
+import { Container } from 'react-bootstrap';
 
 
 function createData(rideNumber, carNumber, date,  charge) {
@@ -113,10 +114,12 @@ export default function CarList(props) {
 
   return (
     <>
+            <Container style={{paddingTop:"50px"}}>
+
     {!loading && (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead>
+        <TableHead  style={{backgroundColor:"#FFFDD0"}}>
           <TableRow>
             {props.ride ? (
               <>
@@ -162,6 +165,7 @@ export default function CarList(props) {
       </Table>
     </TableContainer>
     )}
+    </Container>
     </>
   );
 }

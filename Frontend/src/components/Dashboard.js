@@ -26,6 +26,7 @@ import {useHistory} from 'react-router-dom';
 import { fechInProgressRides } from '../services/rideService';
 import InProgressRideList from './ride/InProgressRideList';
 import BookRideButton from './ride/BookRideButton';
+import {  Row } from 'react-bootstrap';
 
 
 function Copyright(props) {
@@ -48,7 +49,7 @@ const AppBar = styled(MuiAppBar, {
 })(({ theme, open }) => ({
   zIndex: theme.zIndex.drawer + 1,
   marginTop:'100px',
-  backgroundColor:'#363c78',
+  backgroundColor:'#FFFDD0',
   transition: theme.transitions.create(['width', 'margin'], {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
@@ -90,9 +91,12 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 );
 
 const mdTheme = createTheme({
-  // palette:{
-  //   mode:"dark"
-  // }
+  palette:{
+    primary:{
+      main:"#FF0000",
+      darker:"#FF0000"
+    }
+  }
 });
 
 const DashboardContent = () => {
@@ -101,7 +105,7 @@ const DashboardContent = () => {
   const authContext = useContext(AuthContext);
   const {user, authState} = authContext;
   const [loading, setLoading] = useState(true);
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   // const [user, setUser] = useState();
   const toggleDrawer = () => {
     setOpen(!open);
@@ -114,11 +118,12 @@ const DashboardContent = () => {
     <ThemeProvider theme={mdTheme} >
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
-        <AppBar position="absolute" open={open} style={{backgroundColor:""}}>
+        <AppBar position="absolute" open={open} style={{backgroundColor:""}} >
           <Toolbar
             sx={{
               pr: '24px', // keep right padding when drawer closed
             }}
+            
           >
             <IconButton
               edge="start"
@@ -135,7 +140,7 @@ const DashboardContent = () => {
             <Typography
               component="h1"
               variant="h6"
-              color="White"
+              color="black"
               noWrap
               sx={{ flexGrow: 1 }}
               fontFamily="Roboto"
@@ -144,14 +149,14 @@ const DashboardContent = () => {
             >
               Dashboard
             </Typography>
-            <IconButton color="inherit">
+            {/* <IconButton color="inherit">
               <Badge badgeContent={4} color="secondary">
                 <NotificationsIcon />
               </Badge>
-            </IconButton>
+            </IconButton> */}
           </Toolbar>
         </AppBar>
-        <Drawer variant="permanent" open={open}>
+        <Drawer variant="permanent" open={open} >
           <Toolbar
             sx={{
               display: 'flex',
@@ -165,7 +170,7 @@ const DashboardContent = () => {
             </IconButton>
           </Toolbar>
           <Divider />
-          <List>{mainListItems(user.persona)}</List>
+          <List  >{mainListItems(user.persona)}</List>
           <Divider />
         </Drawer>
         <Box
@@ -179,45 +184,28 @@ const DashboardContent = () => {
             height: '100vh',
             overflow: 'auto',
           }}
-        >
+     >
           <Toolbar />
-          <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+          <Container maxWidth="lg" sx={{ mt: 9, mb: 9 }}>
+<div style={{display:"flex"}}>
             <Grid container spacing={3}>
-              {/* Chart */}
-              <Grid item xs={12} md={8} lg={7}>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    height: 240,
-                  }}
-                >
-                  {/* <Chart /> */}
+              
                   
                   <BookRideButton/>
-                </Paper>
-              </Grid>
-              {/* Recent Deposits */}
-              <Grid item xs={12} md={8} lg={7}>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    height: 240,
-                  }}
-                >
+             
+             
                   <Wallet />
-                </Paper>
-              </Grid>
-              {/* Recent Orders */}
-              <Grid item xs={12}>
+               
+            
+            </Grid>
+            <Grid item xs={12}>
                 <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
+                <Typography fontWeight="bold" color="black" variant='h5' paddingBottom="10px" fontFamily={"arial"}>Ride Status</Typography>
+
                   <InProgressRideList/>
                 </Paper>
               </Grid>
-            </Grid>
+              </div>
             <Copyright sx={{ pt: 4 }} />
           </Container>
         </Box>
