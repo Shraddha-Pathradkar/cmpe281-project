@@ -118,16 +118,16 @@ const DashboardContent = () => {
     <ThemeProvider theme={mdTheme} >
       <Box sx={{ display: 'flex' }} >
         <CssBaseline />
-<<<<<<< HEAD
+
         <AppBar position="absolute" open={open} style={{backgroundColor:""}} >
-=======
+
 {/*        <AppBar position="absolute" open={open} style={{backgroundColor:""}}>
 >>>>>>> 0a272631b34ccb42e8765182a820605a19ce5175
           <Toolbar
             sx={{
               pr: '24px', // keep right padding when drawer closed
             }}
-            
+
           >
             <IconButton
               edge="start"
@@ -158,13 +158,10 @@ const DashboardContent = () => {
                 <NotificationsIcon />
               </Badge>
             </IconButton> */}
-          </Toolbar>
+          {/*}</Toolbar>*/}
         </AppBar>
-<<<<<<< HEAD
-        <Drawer variant="permanent" open={open} >
-=======
-*/}        <Drawer variant="permanent" open={open}>
->>>>>>> 0a272631b34ccb42e8765182a820605a19ce5175
+        <Drawer variant="permanent" open={open}>
+
           <Toolbar
             sx={{
               display: 'flex',
@@ -206,22 +203,8 @@ const DashboardContent = () => {
           }}
      >
           <Toolbar />
-<<<<<<< HEAD
-          <Container maxWidth="lg" sx={{ mt: 9, mb: 9 }}>
-<div style={{display:"flex"}}>
-            <Grid container spacing={3}>
-              
-                  
-                  <BookRideButton/>
-             
-             
-                  <Wallet />
-               
-            
-            </Grid>
-            <Grid item xs={12}>
-=======
           <Container maxWidth="100" sx={{ mt: 10, mb: 4 }} >
+          <div>
           <h2 style ={{align: "left"}}>Welcome User ! </h2>
             <Grid container spacing={3} >
               {/* Chart */}
@@ -256,15 +239,16 @@ const DashboardContent = () => {
               {/* Recent Orders */}
               <Grid item xs={12}>
               <h2> Trip Status </h2>
->>>>>>> 0a272631b34ccb42e8765182a820605a19ce5175
+
                 <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
                 <Typography fontWeight="bold" color="black" variant='h5' paddingBottom="10px" fontFamily={"arial"}>Ride Status</Typography>
 
                   <InProgressRideList/>
                 </Paper>
               </Grid>
-              </div>
             <Copyright sx={{ pt: 4 }} />
+            </Grid>
+            </div>
           </Container>
         </Box>
       </Box>
