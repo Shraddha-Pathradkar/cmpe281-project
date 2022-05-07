@@ -1,7 +1,7 @@
 import con from  '../index.js';
 import { sendCustomError, sendCustomSuccess, sendInternalServerError } from './common.js';
 
-export const customerSupport = (req, res)  => {
+export const updateCustomerSupport = (req, res)  => {
   try{
     const {
       userEmail,
@@ -11,10 +11,12 @@ export const customerSupport = (req, res)  => {
     } =  req.body;
 
     const updateCustomerSupport = `CREATE TABLE IF NOT EXISTS customerSupport (
-id INT(10),
-word VARCHAR(500)
+userEmail VARCHAR(500),
+userName VARCHAR(500),
+message VARCHAR(500),
+type VARCHAR(500),
 );
-INSERT INTO customerSupport VALUES (?,?,?,?)`;
+INSERT INTO customerSupport (userEmail,userName,message,type) VALUES (?,?,?,?)`;
 
 con.query(updateCustomerSupport,[
   userEmail,
@@ -22,6 +24,7 @@ con.query(updateCustomerSupport,[
   message,
   type
 ],(err, result) => {
+  console.log(result)
   if(result[0]){
       sendCustomSuccess(res, { data: result[0]});
   }
@@ -37,7 +40,7 @@ con.query(updateCustomerSupport,[
 export const getCustomerSupportData = (req, res) =>{
     try{
       const getData = `SELECT * FROM customerSupport`;
-      con.query(getData, (err,result)=> {
+      con.query(getData,[], (err,result)=> {
         if(err){
             sendInternalServerError(res);
         }

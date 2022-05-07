@@ -6,14 +6,14 @@ export const addCar = (req, res) => {
         const {
             carId,
             carNumber,
-            ownerId, 
-            model, 
-            type, 
-            chargePerDay, 
-            available, 
-            mileage,            
+            ownerId,
+            model,
+            type,
+            chargePerDay,
+            available,
+            mileage,
         } = req.body;
-        console.log('Rohit Shetty', req.body);
+        // console.log('Rohit Shetty', req.body);
         const getCarByIdQuery = 'SELECT * FROM car WHERE carId = ?;';
 
         const carUpdateQuery = `UPDATE car SET
@@ -27,12 +27,12 @@ export const addCar = (req, res) => {
         `;
         const carAddQuery = `INSERT INTO car (
             carId,
-            carNumber, 
-            ownerId, 
-            model, 
-            type, 
-            chargePerDay, 
-            available, 
+            carNumber,
+            ownerId,
+            model,
+            type,
+            chargePerDay,
+            available,
             mileage) VALUES (NULL,?, ?,?,?,?,?,?)
         `;
 
@@ -40,12 +40,12 @@ export const addCar = (req, res) => {
 
         if(carId){ //Update
             con.query(carUpdateQuery, [
-                carNumber, 
-                model, 
-                type, 
+                carNumber,
+                model,
+                type,
                 chargePerDay,
-                available,  
-                mileage, 
+                available,
+                mileage,
                 carId
             ], (err, result) => {
                 if(err){
@@ -66,12 +66,12 @@ export const addCar = (req, res) => {
         else{ //Add New
             con.query(carAddQuery, [
                 carNumber,
-                ownerId, 
-                model, 
-                type, 
+                ownerId,
+                model,
+                type,
                 chargePerDay,
-                available,  
-                mileage, 
+                available,
+                mileage,
             ], (err, result) => {
                 console.log('RUSHIHLHLIHLIHILLHI', result);
 
@@ -104,13 +104,13 @@ export const addCar = (req, res) => {
     catch(err){
         sendInternalServerError(res);
     }
-} 
+}
 
 
 //Get Request
 export const getCarsByType = (req, res) => {
     try{
-        
+
         const type = req.query.type;
         const filterCarsBasedOnTypeQuery = `SELECT * FROM car WHERE type = ?`;
         con.query(filterCarsBasedOnTypeQuery, [type], (err, result) => {

@@ -6,6 +6,7 @@ import express from 'express';
 import userRouter from './routes/userRoutes.js';
 import carRouter from  './routes/carRoutes.js';
 import rideRouter from './routes/rideRoutes.js';
+import customerSupportRouter from './routes/customerSupportRoutes.js';
 
 dotenv.config();
 var app = express();
@@ -33,5 +34,6 @@ app.listen(process.env.PORT, () => {
 app.use('/user', userRouter);
 app.use('/car', carRouter);
 app.use('/ride', rideRouter);
+app.use('/customerSupport', customerSupportRouter);
 
 export default con;
