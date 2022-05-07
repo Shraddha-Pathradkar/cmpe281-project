@@ -19,13 +19,8 @@ import { Link } from "react-router-dom";
 export const mainListItems = (persona) => {
   console.log(persona);
   return(
-<<<<<<< HEAD
-    <div >
-      <ListItem button > 
-=======
     <div>
       <ListItem button>
->>>>>>> 0a272631b34ccb42e8765182a820605a19ce5175
         <ListItemIcon>
           <DashboardIcon />
         </ListItemIcon>
