@@ -14,3 +14,13 @@ export const postCustomerQuery = async (requestObj) => {
     const data = await response.json();
     return {status, data};
 }
+export const fetchCustomerQuery = async () => {
+    const options = {
+        method: 'GET',
+        headers: {'Content-Type': 'application/json'},
+    }
+    const response = await fetch(`${BACKEND_URL}:${BACKEND_PORT}/customerSupport/getCustomerQuery`, options);
+    const status = response.status;
+    const data  = await response.json();
+    return {status, data};
+}

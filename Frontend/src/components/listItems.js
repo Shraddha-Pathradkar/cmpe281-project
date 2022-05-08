@@ -97,6 +97,12 @@ export const mainListItems = (persona) => {
           <ListItemText style={{color: 'black'}} primary="Business Trends" />
         </ListItem>
       )}
+       {persona === 'admin' && <ListItem button component={Link} to="/CustomerSupportAdmin">
+        <ListItemIcon>
+          <SupportAgentIcon />
+        </ListItemIcon>
+        <ListItemText style={{color: 'black'}} primary="Customer Service" />
+      </ListItem>}
 
     </div>
   )};

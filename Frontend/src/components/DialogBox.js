@@ -76,7 +76,7 @@ export default function DialogBox({type,width,image,handleSubmit}) {
     const payload={
       userEmail:user.email,
     userName:`${ user.fname} ${user.lname}`,
-    message:message,
+    message:(message).toString(),
     type:type
 
     }
