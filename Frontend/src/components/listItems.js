@@ -101,7 +101,7 @@ export const mainListItems = (persona) => {
         <ListItemIcon>
           <SupportAgentIcon />
         </ListItemIcon>
-        <ListItemText style={{color: 'black'}} primary="Customer Service" />
+        <ListItemText style={{color: 'black'}} primary="Customer Support" />
       </ListItem>}
 
     </div>
