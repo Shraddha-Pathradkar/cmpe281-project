@@ -1,4 +1,5 @@
-import * as React from 'react';
+import React, {useContext} from 'react';
+
 import PropTypes from 'prop-types';
 import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
@@ -13,6 +14,7 @@ import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import { Col, Row } from 'react-bootstrap';
 import { CardActions, CardContent, Input } from '@mui/material';
+import { AuthContext } from '../components/authenticaion/ProvideAuth';
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
@@ -52,22 +54,52 @@ BootstrapDialogTitle.propTypes = {
   onClose: PropTypes.func.isRequired,
 };
 
-export default function DialogBox({type,width,image}) {
+export default function DialogBox({type,width,image,handleSubmit}) {
   const [open, setOpen] = React.useState(false);
+  const [message, setMessage] = React.useState("");
+
 
   const handleClickOpen = () => {
     setOpen(true);
   };
+  const authContext = useContext(AuthContext);
+
+  const {user} = authContext;
+
   const handleClose = () => {
+    
+    
     setOpen(false);
   };
+  console.log(message)
+
+  const handleSend=()=>{
+  //   const payload={
+  //     userEmail:user.email,
+  //   userName:`${ user.fname} ${user.lname}`,
+  //   message:message,
+  //   type:type
+
+  //   }
+
+  //  handleSubmit(payload)
+  //  handleClose()
+  }
+const handleMesaage=(e)=>{
+  
+  setMessage(e.target.value)
+
+}
+  
+
+
   const DialogContent=()=>{
 if (type==="Chat"){
   return (
     <React.Fragment>
             <Row style={{paddingRight:"40px" }}>
         <Col style={{paddingLeft:"40px"}}>
-        <Input placeholder='Message'>Message</Input>
+        <Input placeholder='Message' onChange={handleMesaage} value={message}>Message</Input>
         </Col>
         <Col>
         <Card sx={{ maxWidth: 345}}>
@@ -102,7 +134,7 @@ else if(type==="Call"){
       <Row style={{paddingRight:"40px" }}>
         <Col style={{paddingLeft:"40px"}}>
          <Typography style={{color:"blue",paddingTop:"20px"}}>Request a call back</Typography> 
-        <Input style={{paddingTop:"40px"}} placeholder='Your Phone Number'>Phone Number</Input>
+        <Input style={{paddingTop:"40px"}} placeholder='Your Phone Number' onChange={handleMesaage} value={message} >Phone Number</Input>
         </Col>
         <Col>
         <Card sx={{ maxWidth: 345}}>
@@ -189,7 +221,7 @@ else{
 
         </DialogContent>
         <DialogActions>
-          <Button autoFocus onClick={handleClose}>
+          <Button autoFocus onClick={handleSend} disabled={type==="Email"}>
             Send
           </Button>
         </DialogActions>

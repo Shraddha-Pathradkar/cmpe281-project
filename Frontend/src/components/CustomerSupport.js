@@ -13,8 +13,22 @@ import Button from '@mui/material/Button';
 import {Link, useHistory} from 'react-router-dom';
 import { CardActionArea } from "@mui/material";
 import DialogBox from "./DialogBox";
+import { postCustomerQuery } from '../services/customerSupport';
 
 const CustomerSupport =()=>{
+  
+  const handleSubmit= async (payload)=>{
+    
+    const resp = await postCustomerQuery(payload);
+      if(resp.status === 200){
+        console.log(resp)
+      }
+      else{
+        console.log(resp)
+        console.log('Error Occured', resp.data.message);
+      }
+
+  }
     return(
         <React.Fragment>
         <Container component="main" maxWidth="lg" sx={{ mb: 4 }}>
@@ -27,17 +41,14 @@ const CustomerSupport =()=>{
           <Row style={{marginTop:"20px"}}>
          <Col >
          
-         <DialogBox type="Chat" width={160} image={"https://central.ring.com/wp-content/uploads/2019/06/contact-store-icons-default-14.png"}/>
-      
+         <DialogBox type="Chat" width={160} image={"https://central.ring.com/wp-content/uploads/2019/06/contact-store-icons-default-14.png"} handleSubmit={handleSubmit}/>
            </Col>
-           
-           
-         <Col >
-         <DialogBox type="Call" width={160} image={"https://central.ring.com/wp-content/uploads/2019/06/store-icons-v2-16.png"}/>
+        <Col >
+         <DialogBox type="Call" width={160} image={"https://central.ring.com/wp-content/uploads/2019/06/store-icons-v2-16.png"} handleSubmit={handleSubmit}/>
 
           </Col>
          <Col >
-         <DialogBox type="Email" width={210} image={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAoGoMJI7BlEhLrM6IrlJh8_sNeQucofRdDQ&usqp=CAU"}/>
+         <DialogBox type="Email" width={210} image={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAoGoMJI7BlEhLrM6IrlJh8_sNeQucofRdDQ&usqp=CAU"} handleSubmit={handleSubmit}/>
        </Col>
 
           </Row>

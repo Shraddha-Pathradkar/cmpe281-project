@@ -16,7 +16,6 @@ export const bookRide = async (ride, user) => {
         customerId: user.userId,
         rideDate: date,
     }
-    console.log(payload);
     const options = {
         method: 'POST',
         headers:  {'Content-Type': 'application/json' },
@@ -48,6 +47,5 @@ export const fetchRideListFromDB = async (customerId, persona) => {
     const response = await fetch(`${BACKEND_URL}:${BACKEND_PORT}/ride/userRides?userId=${customerId}&persona=${persona}`, options);
     const status = response.status;
     const data  = await response.json();
-    console.log('Ride Service', data);
     return {status, data};
 }

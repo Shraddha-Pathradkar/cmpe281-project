@@ -29,7 +29,6 @@ export const addCar = async (car, user) => {
         ownerId: user.userId,
         available:1,
     }
-    console.log(payload);
     const options = {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},

@@ -18,15 +18,15 @@ type VARCHAR(500),
 );
 INSERT INTO customerSupport (userEmail,userName,message,type) VALUES (?,?,?,?)`;
 
-con.query(updateCustomerSupport,[
+con.query(updateCustomerSupport,[],[
   userEmail,
   userName,
   message,
   type
 ],(err, result) => {
   console.log(result)
-  if(result[0]){
-      sendCustomSuccess(res, { data: result[0]});
+  if(result){
+      sendCustomSuccess(res, { data: result});
   }
   else{
       sendCustomError(res, 404, 'Entity Not Found');

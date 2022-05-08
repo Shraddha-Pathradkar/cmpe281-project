@@ -64,7 +64,6 @@ export default function Signup() {
       persona:persona,
     };
 
-    console.log(data1);
     const response = await signup(data1);
     if(response.status === 200){
       setUser(response.data);
@@ -77,7 +76,6 @@ export default function Signup() {
     }
     else{
       setAuthState(false);
-      console.log('Error', response);
     }
   };
 
