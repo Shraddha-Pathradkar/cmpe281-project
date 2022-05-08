@@ -3,6 +3,7 @@ import { sendCustomError, sendCustomSuccess, sendInternalServerError } from './c
 
 export const updateCustomerSupport = (req, res)  => {
   try{
+
     const {
       userEmail,
       userName,
@@ -24,7 +25,6 @@ con.query(updateCustomerSupport,[],[
   message,
   type
 ],(err, result) => {
-  console.log(result)
   if(result){
       sendCustomSuccess(res, { data: result});
   }

@@ -13,7 +13,7 @@ import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import { Col, Row } from 'react-bootstrap';
-import { CardActions, CardContent, Input } from '@mui/material';
+import { CardActions, CardContent, Input, TextField } from '@mui/material';
 import { AuthContext } from '../components/authenticaion/ProvideAuth';
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -67,23 +67,21 @@ export default function DialogBox({type,width,image,handleSubmit}) {
   const {user} = authContext;
 
   const handleClose = () => {
-    
-    
     setOpen(false);
+    setMessage("")
+
   };
-  console.log(message)
 
   const handleSend=()=>{
-  //   const payload={
-  //     userEmail:user.email,
-  //   userName:`${ user.fname} ${user.lname}`,
-  //   message:message,
-  //   type:type
+    const payload={
+      userEmail:user.email,
+    userName:`${ user.fname} ${user.lname}`,
+    message:message,
+    type:type
 
-  //   }
-
-  //  handleSubmit(payload)
-  //  handleClose()
+    }
+   handleSubmit(payload)
+   handleClose()
   }
 const handleMesaage=(e)=>{
   
@@ -93,12 +91,13 @@ const handleMesaage=(e)=>{
   
 
 
-  const DialogContent=()=>{
+  const DialogContentFunc=()=>{
 if (type==="Chat"){
   return (
     <React.Fragment>
             <Row style={{paddingRight:"40px" }}>
         <Col style={{paddingLeft:"40px"}}>
+        {/* <TextField id="standard-basic" label="Standard" variant="standard" onChange={handleMesaage} value={message}/> */}
         <Input placeholder='Message' onChange={handleMesaage} value={message}>Message</Input>
         </Col>
         <Col>
@@ -217,7 +216,7 @@ else{
           Welcome, we are happy to help!
         </BootstrapDialogTitle>
         <DialogContent dividers  >
-          {DialogContent()}
+          {DialogContentFunc()}
 
         </DialogContent>
         <DialogActions>
