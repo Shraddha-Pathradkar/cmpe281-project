@@ -11,6 +11,10 @@ class App extends React.Component {
     this.state = { apiResponse: "" };
   }
   
+  componentDidMount() {
+    document.body.style.backgroundColor = "white"
+}
+  
   render() {
    
     return (

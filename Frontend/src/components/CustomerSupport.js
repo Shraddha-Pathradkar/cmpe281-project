@@ -1,17 +1,9 @@
 import React from "react";
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Container from '@mui/material/Container';
-import Paper from '@mui/material/Paper';
 import { Col, Row } from 'react-bootstrap';
-import Card from '@mui/material/Card';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-import {Link, useHistory} from 'react-router-dom';
-import { CardActionArea } from "@mui/material";
+import {Link} from 'react-router-dom';
 import DialogBox from "./DialogBox";
 import { postCustomerQuery } from '../services/customerSupport';
 
@@ -34,7 +26,7 @@ const CustomerSupport =()=>{
         <Container component="main" maxWidth="lg" sx={{ mb: 4 }}>
 
           <Row>
-          <Typography variant="h3" gutterBottom style={{marginLeft:"400px",marginTop:"30px"}}>
+          <Typography variant="h4" gutterBottom style={{marginLeft:"450px",marginTop:"30px" , fontWeight:"bold"}}>
                   GET IN TOUCH.
                 </Typography>
           </Row>

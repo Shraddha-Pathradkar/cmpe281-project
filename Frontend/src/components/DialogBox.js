@@ -194,7 +194,7 @@ else{
   return (
     <div>
 
-<Card sx={{ display: 'flex' }} style={{backgroundColor:"#A7D3FF"}} onClick={handleClickOpen} >
+<Card sx={{ display: 'flex' }} style={{backgroundColor:"#edfc83"}} onClick={handleClickOpen} >
            <CardMedia
            component="img"
            sx={{ width: {width}, display: { xs: 'none', sm: 'block' } }}

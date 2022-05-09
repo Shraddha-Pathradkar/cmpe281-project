@@ -95,7 +95,8 @@ const mdTheme = createTheme({
     primary:{
       main:"#FF0000",
       darker:"#FF0000"
-    }
+    },
+    
   }
 });
 
@@ -112,13 +113,12 @@ const DashboardContent = () => {
   };
 
   return (
-    <div >
+    <div>
     {(
-    <ThemeProvider theme={mdTheme} >
-      <Box sx={{ display: 'flex' }} >
+      <Box sx={{ display: 'flex' }}  >
         <CssBaseline />
 
-        <AppBar position="absolute" open={open} style={{backgroundColor:""}} >
+        <AppBar position="absolute" open={open}  >
 
 {/*        <AppBar position="absolute" open={open} style={{backgroundColor:""}}>
 >>>>>>> 0a272631b34ccb42e8765182a820605a19ce5175
@@ -258,7 +258,6 @@ const DashboardContent = () => {
           </Container>
         </Box>
       </Box>
-    </ThemeProvider>
     )}
     </div>
   );
