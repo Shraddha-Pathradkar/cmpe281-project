@@ -1,4 +1,5 @@
 // eslint-disable-next-line no-unused-vars
+
 import React, { Component } from 'react';
 import './App.css';
 import Main from './components/Main';
@@ -9,12 +10,15 @@ class App extends React.Component {
     super(props);
     this.state = { apiResponse: "" };
   }
-
+  
   render() {
+   
     return (
-      <div className="App">
+   
+      <div className="App" >
         <Main></Main>
       </div>
+     
     );
   };
 }

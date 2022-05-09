@@ -98,7 +98,7 @@ const AddCar = () => {
         </Toolbar> */}
       </AppBar>
       <Container component="main" sx={{ mb: 4 }} style={{maxHeight:"300px", }}>
-        <Paper variant="outlined"   sx={{ my: { xs: 5, md: 8 }, p: { xs: 5, md: 8} }}  style={{ backgroundColor:"#FFFDD0"}}>
+        <Paper variant="outlined"   sx={{ my: { xs: 5, md: 8 }, p: { xs: 5, md: 8} }}  style={{ backgroundColor:"White"}}>
           <Typography component="h1" variant="h4" align="center">
             ADD CAR
           </Typography>

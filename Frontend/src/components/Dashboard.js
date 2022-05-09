@@ -26,7 +26,7 @@ import {useHistory} from 'react-router-dom';
 import { fechInProgressRides } from '../services/rideService';
 import InProgressRideList from './ride/InProgressRideList';
 import BookRideButton from './ride/BookRideButton';
-import {  Row } from 'react-bootstrap';
+import {  Col, Row } from 'react-bootstrap';
 
 
 function Copyright(props) {
@@ -111,7 +111,6 @@ const DashboardContent = () => {
     setOpen(!open);
   };
 
-  console.log(authContext);
   return (
     <div >
     {(
@@ -203,12 +202,13 @@ const DashboardContent = () => {
           }}
      >
           <Toolbar />
-          <Container maxWidth="100" sx={{ mt: 10, mb: 4 }} >
-          <div>
-          <h2 style ={{align: "left"}}>Welcome User ! </h2>
-            <Grid container spacing={3} >
-              {/* Chart */}
-              <Grid item xs={12} md={8} lg={7}>
+          <Container maxWidth="100" sx={{ mt: -7, mb: 4 }} >
+          <Typography style ={{align: "left", fontWeight:"bold", fontSize:"40px",paddingBottom:"30px"}}>{`Welcome Back ${user.fname}!!!`}</Typography>
+         
+          <Row>
+     {/* Chart */}
+     <Col>
+              <Grid item xs={12} md={8} lg={10}>
                 <Paper
                   sx={{
                     p: 2,
@@ -216,15 +216,18 @@ const DashboardContent = () => {
                     flexDirection: 'column',
                     height: 240,
                   }}
+
                 >
                   {/* <Chart /> */}
-                  <h2>Book your Ride in 3 easy Steps! <br/>
-                  Lets get you started.</h2>
-                  <BookRideButton/>
+                  <Typography variant='h5'>Book your Ride in 3 easy Steps! <br/>
+                  Lets get you started.</Typography>
+                  <div             style={{paddingLeft:"120px"}}
+>                  <BookRideButton/>
+</div>
                 </Paper>
               </Grid>
               {/* Recent Deposits */}
-              <Grid item xs={12} md={8} lg={5}>
+              <Grid item xs={12} md={8} lg={10} style={{paddingTop:"30px"}}>
                 <Paper maxWidth="sm"
                   sx={{
                     p: 2,
@@ -236,19 +239,22 @@ const DashboardContent = () => {
                   <Wallet />
                 </Paper>
               </Grid>
+              </Col>
               {/* Recent Orders */}
+              <Col>
               <Grid item xs={12}>
-              <h2> Trip Status </h2>
+              <Typography fontWeight="bold" color="black" variant='h5' paddingBottom="10px" fontFamily={"arial"} style={{paddingBottom:"20px"}}>  Trip Status </Typography>
 
                 <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
                 <Typography fontWeight="bold" color="black" variant='h5' paddingBottom="10px" fontFamily={"arial"}>Ride Status</Typography>
 
                   <InProgressRideList/>
                 </Paper>
-              </Grid>
-            <Copyright sx={{ pt: 4 }} />
-            </Grid>
-            </div>
+              </Grid></Col>
+             
+            {/* <Copyright sx={{ pt: 4 }} /> */}
+            </Row>
+
           </Container>
         </Box>
       </Box>
