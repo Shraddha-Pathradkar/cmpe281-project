@@ -3,7 +3,6 @@ import CssBaseline from '@mui/material/CssBaseline';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import Toolbar from '@mui/material/Toolbar';
 import Paper from '@mui/material/Paper';
 import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
@@ -97,15 +96,15 @@ const AddCar = () => {
           </Typography>
         </Toolbar> */}
       </AppBar>
-      <Container component="main" sx={{ mb: 4 }} style={{maxHeight:"300px", }}>
-        <Paper variant="outlined"   sx={{ my: { xs: 5, md: 8 }, p: { xs: 5, md: 8} }}  style={{ backgroundColor:"White"}}>
-          <Typography component="h1" variant="h4" align="center">
+      <Container component="main" sx={{ mb: 1 }} style={{maxHeight:"100px"}}>
+        <Paper variant="outlined"   sx={{ my: { xs: 1, md: 3 }, p: { xs: 2, md: 2} }}  style={{ backgroundColor:"White"}}>
+          <Typography component="h1" variant="h6" align="center">
             ADD CAR
           </Typography>
           <Stepper activeStep={activeStep} sx={{ pt: 3, pb: 5 }}>
             {steps.map((label) => (
               <Step key={label}>
-                <StepLabel> <Typography style={{color:"black"}} component="h6" variant="h6" align="center" color="black" fontWeight={"bold"}>{label}</Typography></StepLabel>
+                <StepLabel> <Typography style={{color:"black"}}  align="center" color="black" fontWeight={"bold"}>{label}</Typography></StepLabel>
               </Step>
             ))}
           </Stepper>
@@ -147,7 +146,7 @@ const AddCar = () => {
         </Paper>
       </Container>
       </div>
-      <Copyright />
+      {/* <Copyright /> */}
 
   
     </ThemeProvider>

@@ -97,7 +97,7 @@ export default function BookRide() {
         }}
       >
       </AppBar>
-      <div style={{backgroundColor:"#afc1d0", paddingTop:"50px"}}>
+      <div style={{backgroundColor:"#fff", paddingTop:"50px"}}>
 
       <Container component="main" maxWidth="m" sx={{ mb: 4 }} style={{ maxWidth:"1000px"}}>
         <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
