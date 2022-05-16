@@ -38,7 +38,7 @@ export const mainListItems = (persona) => {
         </ListItemIcon>
         <ListItemText style={{color: 'black'}} primary="Payment Plan" />
       </ListItem> */}
-      {(persona === 'owner' || persona === 'admin') && (
+      {(persona === 'owner' ) && (
       <Link to={{
         pathname: '/RideList',
         state: {
@@ -73,7 +73,7 @@ export const mainListItems = (persona) => {
       </Link>
 
 
-      {(persona === 'owner' || persona === 'admin' )&& (
+      {(persona === 'owner' )&& (
         <ListItem button component={Link} to='/AddCar'>
         <ListItemIcon>
           <LayersIcon />
@@ -89,14 +89,14 @@ export const mainListItems = (persona) => {
         <ListItemText style={{color: 'black'}} primary="View Assets" />
       </ListItem>
       )}
-      {persona === 'admin' && (
+      {/* {persona === 'admin' && (
         <ListItem button component={Link} to='/AdminAnalysis'>
             <ListItemIcon>
               <LayersIcon />
             </ListItemIcon>
           <ListItemText style={{color: 'black'}} primary="Business Trends" />
         </ListItem>
-      )}
+      )} */}
        {persona === 'admin' && <ListItem button component={Link} to="/CustomerSupportAdmin">
         <ListItemIcon>
           <SupportAgentIcon />

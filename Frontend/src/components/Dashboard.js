@@ -249,7 +249,7 @@ const DashboardContent = () => {
                 </Paper>
               </Grid>
               {/* Recent Deposits */}
-              <Grid item xs={12} md={5} lg={10} style={{paddingTop:"30px"}}>
+              {user.persona==="customer" &&  <Grid item xs={12} md={5} lg={10} style={{paddingTop:"30px"}}>
                 <Paper maxWidth="sm"
                   sx={{
                     p: 2,
@@ -268,7 +268,7 @@ const DashboardContent = () => {
                  
                   {/* <Wallet /> */}
                 </Paper>
-              </Grid>
+              </Grid>}
               </Col>
               {/* Recent Orders */}
               <Col>

@@ -36,16 +36,23 @@ export default function CarList(props) {
   const authContext = useContext(AuthContext);
   const [carList, setCarList] = useState();
   const [loading, setLoading] = useState(true);
-  console.log(props); 
-  useEffect(() => {
-    if(props.persona === 'owner'){
-      const {user} = authContext;
+  let carListArray=[];
+  const {user} = authContext;
       const {userId} = user;
+  useEffect(() => {
+    if(user.persona ==="admin"){
+      fetchCarListForCustomer("Sedan")
+      fetchCarListForCustomer("Hatchback")
+    }
+
+   else if(user.persona === 'owner'){
+    
       fetchCarListForOwner(userId);
     }
-    else{
+    else if (user.persona==="customer"){
       fetchCarListForCustomer(props.ride.carType);
     }
+   
   }, [])
 
   const selectCar = (e) =>{
@@ -64,6 +71,7 @@ export default function CarList(props) {
     const resp = await fetchCarListFromDB(type);
     if(resp.status === 200){
       const rows = [];
+      console.log(resp.data.payload)
       resp.data.payload.forEach(el => {
         const { carNumber, carId, ownerId, type, model, chargePerDay, mileage} = el;
         rows.push({
@@ -76,6 +84,8 @@ export default function CarList(props) {
           mileage,
         })
       });
+
+     
       setCarList(rows);
 
       setLoading(false);

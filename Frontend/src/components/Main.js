@@ -89,7 +89,7 @@ const Main = () => {
                         </PrivateRoute>
 
                         <PrivateRoute path="/CarList">
-                                <CarList persona={'owner'}/>
+                                <CarList />
                         </PrivateRoute>
                         <PrivateRoute path="/RideList">
                                 <RideList/>
