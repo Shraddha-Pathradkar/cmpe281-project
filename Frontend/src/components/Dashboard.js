@@ -27,6 +27,17 @@ import { fechInProgressRides } from '../services/rideService';
 import InProgressRideList from './ride/InProgressRideList';
 import BookRideButton from './ride/BookRideButton';
 import {  Col, Row } from 'react-bootstrap';
+import { DataGrid } from '@mui/x-data-grid';
+import Pagination from './Pagination';
+
+import {
+  Chart,
+  PieSeries,
+  Title,
+} from '@devexpress/dx-react-chart-material-ui';
+import { Animation } from '@devexpress/dx-react-chart';
+import { fechInRideDetails } from '../services/carlaRideDetails';
+import {  RowsProp, ColDef } from "@material-ui/data-grid";
 
 
 function Copyright(props) {
@@ -111,13 +122,31 @@ const DashboardContent = () => {
   const toggleDrawer = () => {
     setOpen(!open);
   };
+
+  const data = [
+    { country: 'Sedan	', area: 12 },
+    { country: 'Hatchback	', area: 7 },
+   
+  ];
+
+  const pieChartData = [
+    { region: 'Asia', val: 4119626293 },
+    { region: 'Africa', val: 1012956064 },
+    { region: 'Northern America', val: 344124520 },
+    { region: 'Latin America and the Caribbean', val: 590946440 },
+    { region: 'Europe', val: 727082222 },
+    { region: 'Oceania', val: 35104756 },
+  ];
   useEffect(() => {
     getInProgressRides();
+    getInRidesDetails();
+
   },[])
   
 
   const [rideDetails,setRideDetails]=useState([])
-  
+  const [vehicleDetails,setVehicleDetails]=useState([])
+
   const getInProgressRides = async () => {
     const {userId, persona} = user;
     const resp = await fechInProgressRides(userId, persona);
@@ -133,7 +162,25 @@ const DashboardContent = () => {
     rideDetails.filter((ride)=> total+= ride.chargePerDay)
     return `Total:  $${total}`
   }
+  const getInRidesDetails = async () => {
+    const resp = await fechInRideDetails();
+    if(resp.status === 200){
+      setVehicleDetails(resp.data)
+    }
+    else{
+        console.log(resp.data.message);
+    }
+  }
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postPerPage] = useState(20);
+
+  const indexOfLastPost = currentPage * postPerPage;
+  const indexOfFirstPost = indexOfLastPost - postPerPage;
+  const currentPosts = vehicleDetails.slice(indexOfFirstPost, indexOfLastPost);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+// console.log(vehicleDetails.length,"&&&&&&&&&&&&")
   return (
     <div>
     {(
@@ -230,7 +277,69 @@ const DashboardContent = () => {
           <Row>
      {/* Chart */}
      <Col>
-              <Grid item xs={12} md={8} lg={10}>
+     {
+       user.persona==="admin" && 
+       <div>
+       <div style={{display:"flex"}} > 
+         
+         <Paper style={{width:"500px",  marginLeft:"50px"}}>
+       <Chart
+         data={data}
+       >
+         <PieSeries
+           valueField="area"
+           argumentField="country"
+         />
+         <Title
+           text="Car Types"
+         />
+         <Animation />
+       </Chart>
+     </Paper>
+  
+        <Paper style={{width:"500px", marginLeft:"50px"}}>
+              <Chart
+                data={pieChartData}
+              >
+                <PieSeries
+                  valueField="val"
+                  argumentField="region"
+                  innerRadius={0.6}
+                />
+                <Title
+                  text="Car Models"
+                />
+                <Animation />
+              </Chart>
+            </Paper>
+          </div>    
+     <Typography variant='h5' style={{marginTop:"20px", fontWeight:"bold"}}>Sensor Data of car rides</Typography>     
+     <ul className="list-group mb-4">
+      {currentPosts.map((post) => {
+        return (
+          <div> 
+            <li key={post.id} className="list-group-item">
+            
+          {post.vehicle.map((details,index)=>{
+            return <Typography>{details}</Typography>
+
+          })}
+        </li>
+        <br/></div>
+         
+        );
+      })}
+    </ul>
+      <Pagination
+        totalPosts={vehicleDetails.length}
+        postPerPage={postPerPage}
+        paginate={paginate}
+      />
+          </div>
+
+
+     }
+            { user.persona==="customer" &&  <Grid item xs={12} md={8} lg={10}>
                 <Paper
                   sx={{
                     p: 2,
@@ -247,7 +356,7 @@ const DashboardContent = () => {
 >                  <BookRideButton/>
 </div>
                 </Paper>
-              </Grid>
+              </Grid>}
               {/* Recent Deposits */}
               {user.persona==="customer" &&  <Grid item xs={12} md={5} lg={10} style={{paddingTop:"30px"}}>
                 <Paper maxWidth="sm"
@@ -269,10 +378,11 @@ const DashboardContent = () => {
                   {/* <Wallet /> */}
                 </Paper>
               </Grid>}
+              
               </Col>
               {/* Recent Orders */}
               <Col>
-              <Grid item xs={12}>
+             {(user.persona==="customer" || user.persona==="owner") &&  <Grid item xs={12}>
               <Typography fontWeight="bold" color="black" variant='h5' paddingBottom="10px" fontFamily={"arial"} style={{paddingBottom:"20px"}}>  Trip Status </Typography>
 
                 <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
@@ -280,7 +390,9 @@ const DashboardContent = () => {
 
                   <InProgressRideList/>
                 </Paper>
-              </Grid></Col>
+              </Grid>}
+              
+              </Col>
              
             {/* <Copyright sx={{ pt: 4 }} /> */}
             </Row>
