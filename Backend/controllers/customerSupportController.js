@@ -53,3 +53,25 @@ export const getCustomerSupportData = (req, res) =>{
     }
 
 }
+
+export const getAllRides = (req, res) =>{
+  try{
+    const getData = `SELECT * FROM ride`;
+    con.query(getData,[], (err,result)=> {
+      if(err){
+          sendInternalServerError(res);
+      }
+      else{
+          console.log("result rides", result);
+          sendCustomSuccess(res, result);
+      }
+    })
+  }
+  catch(err){
+      sendInternalServerError(res);
+  }
+
+}
+
+
+
