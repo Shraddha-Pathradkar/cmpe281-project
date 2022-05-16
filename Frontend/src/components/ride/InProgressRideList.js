@@ -8,6 +8,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { AuthContext } from '../authenticaion/ProvideAuth';
 import {fechInProgressRides} from '../../services/rideService';
+import { fechInRideDetails } from '../../services/carlaRideDetails';
 
 // function createData(rideNumber, carNumber, date,  charge) {
 //   return { rideNumber, carNumber, charge, date };
@@ -40,6 +41,7 @@ const InProgressRideList = props => {
 
     useEffect(() => {
         getInProgressRides();
+        getRideDetails();
     },[])
 
     const getInProgressRides = async () => {
@@ -49,6 +51,15 @@ const InProgressRideList = props => {
         if(resp.status === 200){
             setInProgressRides(resp.data.payload);
             setLoading(false);
+        }
+        else{
+            console.log(resp.data.message);
+        }
+    }
+    const getRideDetails = async () => {
+        const resp = await fechInRideDetails();
+        if(resp.status === 200){
+           console.log(resp.data.payload)
         }
         else{
             console.log(resp.data.message);

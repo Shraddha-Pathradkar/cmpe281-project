@@ -1,9 +1,9 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-const Rides = mongoose.Schema({
+const Rides = new Schema ({
   time: Date,
-  Array: Array
-});
-
-const Rides = mongoose.model("Rides", Rides);
-export default Rides;
+  Array: Array,
+},{collection:"Rides"}
+);
+module.exports = mongoose.model("Rides", Rides);

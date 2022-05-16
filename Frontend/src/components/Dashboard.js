@@ -111,6 +111,28 @@ const DashboardContent = () => {
   const toggleDrawer = () => {
     setOpen(!open);
   };
+  useEffect(() => {
+    getInProgressRides();
+  },[])
+  
+
+  const [rideDetails,setRideDetails]=useState([])
+  
+  const getInProgressRides = async () => {
+    const {userId, persona} = user;
+    const resp = await fechInProgressRides(userId, persona);
+    if(resp.status === 200){
+        setRideDetails(resp.data.payload);
+    }
+    else{
+        console.log(resp.data.message);
+    }
+  }
+  const billingTotal=()=>{
+    let total=0;
+    rideDetails.filter((ride)=> total+= ride.chargePerDay)
+    return `Total:  $${total}`
+  }
 
   return (
     <div>
@@ -227,16 +249,24 @@ const DashboardContent = () => {
                 </Paper>
               </Grid>
               {/* Recent Deposits */}
-              <Grid item xs={12} md={8} lg={10} style={{paddingTop:"30px"}}>
+              <Grid item xs={12} md={5} lg={10} style={{paddingTop:"30px"}}>
                 <Paper maxWidth="sm"
                   sx={{
                     p: 2,
                     display: 'flex',
                     flexDirection: 'column',
-                    height: 240,
+                    height: 140,
                   }}
                 >
-                  <Wallet />
+                  <Typography variant='h5'>Billing Info </Typography>
+                  <Divider></Divider>
+                  <Row style={{paddingLeft:"190px"}}>
+  
+                  <Typography variant='h5' style={{paddingTop:"20px", fontWeight:"Bold"}}>{billingTotal()}</Typography>
+                 </Row>
+                 
+                 
+                  {/* <Wallet /> */}
                 </Paper>
               </Grid>
               </Col>

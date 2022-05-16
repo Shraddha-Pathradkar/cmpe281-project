@@ -20,7 +20,7 @@ app.use(express.json());
 
 // const uri ="mongodb+srv://cmpe281:cmpe281@cluster0.ukbu6.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 // const client = new MongoClient(uri);
-mongoose.connect("mongodb+srv://cmpe281:cmpe281@cluster0.ukbu6.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",{useNewUrlParser:true})
+mongoose.connect("mongodb+srv://cmpe281:cmpe281@cluster0.ukbu6.mongodb.net/Carla_to_mongo?retryWrites=true&w=majority",{useNewUrlParser:true})
 const connection  = mongoose.connection;
 
 
