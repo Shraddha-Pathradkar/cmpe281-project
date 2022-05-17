@@ -171,6 +171,8 @@ export const getUserRides = (req, res) => {
                 from ride INNER JOIN car on car.carId = ride.carId 
                 where customerId = ?`;
         }
+      
+
 
         con.query(query, [userId], (err, result)=>{
             if(err){

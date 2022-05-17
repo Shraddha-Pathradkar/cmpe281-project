@@ -10,6 +10,7 @@ import {fetchRideListFromDB} from '../../services/rideService';
 import { AuthContext } from '../authenticaion/ProvideAuth';
 import {useLocation} from 'react-router-dom';
 import { Container } from '@mui/material';
+import { fetchAllRides } from '../../services/customerSupport';
 
 function createData(rideNumber, carNumber, date,  charge) {
   return { rideNumber, carNumber, charge, date };
@@ -46,37 +47,113 @@ export default function RideList() {
 
     const fetchRideList = async () => {
         const {user} = authContext;
-
-        const resp = await fetchRideListFromDB(user.userId, persona);
-        if(resp.status === 200){
-            const rows = [];
-            console.log(resp.data.payload);
-            resp.data.payload.forEach(el=> {
-                console.log(el);
-                const { carNumber, carId, rideId, source,
-                    destination, status, chargePerDay} = el;
-                rows.push({
-                    carId,
-                    carNumber,
-                    rideId,
-                    source,
-                    destination,
-                    status,
-                    chargePerDay,
-                })
-            });
-            setRideList(rows);
-            setLoading(false);
-        }
-        else{
-            console.log(resp.data.message);
-        }
+if(user.persona==="admin"){
+    const resp = await fetchAllRides();
+    if(resp.status === 200){
+        const rows = [];
+        console.log(resp.data.payload);
+        resp.data.payload.forEach(el=> {
+            console.log(el);
+            const { carNumber, carId, rideId, source,
+                destination, status, chargePerDay,customerId} = el;
+            rows.push({
+                carId,
+                carNumber,
+                rideId,
+                source,
+                destination,
+                status,
+                chargePerDay,
+                customerId
+            })
+        });
+        setRideList(rows);
+        setLoading(false);
+    }
+    else{
+        console.log(resp.data.message);
+    }
+}
+else{
+    const resp = await fetchRideListFromDB(user.userId, persona);
+    if(resp.status === 200){
+        const rows = [];
+        console.log(resp.data.payload);
+        resp.data.payload.forEach(el=> {
+            console.log(el);
+            const { carNumber, carId, rideId, source,
+                destination, status, chargePerDay} = el;
+            rows.push({
+                carId,
+                carNumber,
+                rideId,
+                source,
+                destination,
+                status,
+                chargePerDay,
+            })
+        });
+        setRideList(rows);
+        setLoading(false);
+    }
+    else{
+        console.log(resp.data.message);
+    }
+}
+       
 
     }
+    const {user} = authContext;
+
 
     return (
         <>
-        <Container style={{paddingTop:"50px"}}>
+        { user.persona==="admin"?
+               <Container style={{paddingTop:"50px"}}>
+               {!loading && (
+               <TableContainer component={Paper} >
+               <Table sx={{ minWidth: 650 }} aria-label="simple table" >
+                   <TableHead style={{backgroundColor:"#DFFF00"}}> 
+                   <TableRow>
+                       <TableCell>Booking ID</TableCell>
+                       <TableCell align="right">Status</TableCell>
+                       <TableCell align="right">Source</TableCell>
+                       <TableCell align="right">Destination</TableCell>
+                       <TableCell align="right">Per Day Charge</TableCell>
+                       <TableCell align="right">Car Id</TableCell>
+                       <TableCell align="right">Customer Id</TableCell>
+
+
+                   </TableRow>
+                   </TableHead>
+                   <TableBody>
+                   {rideList.map((row) => (
+                       <TableRow
+                       key={row.carId}
+                       sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                       >
+                       <TableCell component="th" scope="row">
+                           {row.rideId}
+                       </TableCell>
+                       <TableCell style={{color:' green'}}align="right">{row.status}</TableCell>
+       
+                       <TableCell align="right">{row.source}</TableCell>
+                       <TableCell align="right">{row.destination}</TableCell>
+                       <TableCell align="right">{row.charges}</TableCell>
+                       <TableCell align="right">{row.carId}</TableCell>
+                       <TableCell align="right">{row.customerId}</TableCell>
+
+                       
+       
+                       </TableRow>
+                   ))}
+                   </TableBody>
+               </Table>
+               </TableContainer>
+               )}
+               </Container>
+               :
+               <Container style={{paddingTop:"50px"}}>
         {!loading && (
         <TableContainer component={Paper} >
         <Table sx={{ minWidth: 650 }} aria-label="simple table" >
@@ -87,7 +164,7 @@ export default function RideList() {
                 <TableCell align="right">Source</TableCell>
                 <TableCell align="right">Destination</TableCell>
                 <TableCell align="right">Per Day Charge</TableCell>
-                <TableCell align="right">Car ID</TableCell>
+                <TableCell align="right">Car Id</TableCell>
             </TableRow>
             </TableHead>
             <TableBody>
@@ -99,11 +176,12 @@ export default function RideList() {
                 <TableCell component="th" scope="row">
                     {row.rideId}
                 </TableCell>
+                <TableCell style={{color:' green'}}align="right">{row.status}</TableCell>
+
                 <TableCell align="right">{row.source}</TableCell>
                 <TableCell align="right">{row.destination}</TableCell>
-                <TableCell align="right">{row.chargePerDay}</TableCell>
-                <TableCell align="right">{row.carNumber}</TableCell>
-                <TableCell style={{color:' green'}}align="right">{row.status}</TableCell>
+                <TableCell align="right">{row.charges}</TableCell>
+                <TableCell align="right">{row.carId}</TableCell>
 
                 </TableRow>
             ))}
@@ -112,6 +190,8 @@ export default function RideList() {
         </TableContainer>
         )}
         </Container>
+        }
+       
         </>
     );
 }
