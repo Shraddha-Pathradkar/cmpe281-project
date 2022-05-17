@@ -55,7 +55,7 @@ if(user.persona==="admin"){
         resp.data.payload.forEach(el=> {
             console.log(el);
             const { carNumber, carId, rideId, source,
-                destination, status, chargePerDay} = el;
+                destination, status, chargePerDay,customerId} = el;
             rows.push({
                 carId,
                 carNumber,
@@ -64,6 +64,7 @@ if(user.persona==="admin"){
                 destination,
                 status,
                 chargePerDay,
+                customerId
             })
         });
         setRideList(rows);
@@ -102,10 +103,57 @@ else{
        
 
     }
+    const {user} = authContext;
+
 
     return (
         <>
-        <Container style={{paddingTop:"50px"}}>
+        { user.persona==="admin"?
+               <Container style={{paddingTop:"50px"}}>
+               {!loading && (
+               <TableContainer component={Paper} >
+               <Table sx={{ minWidth: 650 }} aria-label="simple table" >
+                   <TableHead style={{backgroundColor:"#DFFF00"}}> 
+                   <TableRow>
+                       <TableCell>Booking ID</TableCell>
+                       <TableCell align="right">Status</TableCell>
+                       <TableCell align="right">Source</TableCell>
+                       <TableCell align="right">Destination</TableCell>
+                       <TableCell align="right">Per Day Charge</TableCell>
+                       <TableCell align="right">Car Id</TableCell>
+                       <TableCell align="right">Customer Id</TableCell>
+
+
+                   </TableRow>
+                   </TableHead>
+                   <TableBody>
+                   {rideList.map((row) => (
+                       <TableRow
+                       key={row.carId}
+                       sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                       >
+                       <TableCell component="th" scope="row">
+                           {row.rideId}
+                       </TableCell>
+                       <TableCell style={{color:' green'}}align="right">{row.status}</TableCell>
+       
+                       <TableCell align="right">{row.source}</TableCell>
+                       <TableCell align="right">{row.destination}</TableCell>
+                       <TableCell align="right">{row.charges}</TableCell>
+                       <TableCell align="right">{row.carId}</TableCell>
+                       <TableCell align="right">{row.customerId}</TableCell>
+
+                       
+       
+                       </TableRow>
+                   ))}
+                   </TableBody>
+               </Table>
+               </TableContainer>
+               )}
+               </Container>
+               :
+               <Container style={{paddingTop:"50px"}}>
         {!loading && (
         <TableContainer component={Paper} >
         <Table sx={{ minWidth: 650 }} aria-label="simple table" >
@@ -142,6 +190,8 @@ else{
         </TableContainer>
         )}
         </Container>
+        }
+       
         </>
     );
 }
